@@ -4,6 +4,7 @@
     top: 0;
     width: calc(100% - 200px);
     position: absolute;
+    background: white;
     top: 0;
     .left-content  {
         gap: 50px;
@@ -17,7 +18,6 @@
             width: 300px;
             height: 40px;
             border: 1px solid rgba($color: #000000, $alpha: 0.3);
-            border-radius: 5px;
             input{
                 width: 260px;
                 height: 40px;
@@ -37,17 +37,56 @@
             gap: 30px;
             li{
                 font-size: .9rem;
-                font-weight: 400;
+                font-weight: 300;
                 list-style: none;
                 cursor: pointer;
             }
             .menu {
                 gap: 3px;
+                position: relative;
                 cursor: pointer;
                 div{
                     width: 25px;
                     height: 2px;
                     background: #111;
+                }
+                .main-menu {
+                    width: 140px !important;
+                    height: auto;
+                    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+                    background: transparent;
+                    position: absolute;
+                    align-items: start;
+                    top: 30px;
+                    right: 0;
+                    cursor: auto;
+                    padding: 30px;
+                    background: white;
+                    gap: 20px;
+                    ul{
+                        align-items: start;
+                        gap: 8px;
+                        li{
+                            font-weight: 300;
+                            font-size: .8rem;
+                            letter-spacing: 1px;
+                        }
+                    }
+                    .line {
+                        width: 140px;
+                        height: 1px;
+                        background: rgba($color: #000000, $alpha: 0.3);
+                    }
+                    .links{
+                        margin-top: 20px;
+                        background: transparent;
+                        width: 140px;
+                        justify-content: space-between;
+                        .link{
+                            font-size: 1.3rem;
+                            color: #111;
+                        }
+                    }
                 }
             }
             button{
@@ -56,7 +95,6 @@
                 background: #111;
                 color: white;
                 border: none;
-                border-radius: 5px;
                 cursor: pointer;
             }
             button:hover{

@@ -16,30 +16,36 @@ exports.create_art = catch_async_err(async (req, res) => {
 });
 
 exports.get_all_arts = catch_async_err(async (req, res) => {
-  const found_arts = await Art.find({});
+  const found_arts = await Art.find({}).populate("owner").populate("series");
   return res.json({
     data: found_arts,
   });
 });
 
 exports.get_featured_images = catch_async_err(async (req, res) => {
-  const found_arts = await Art.find({ featured: true, type: "image" });
+  const found_arts = await Art.find({ featured: true, type: "image" })
+    .populate("owner")
+    .populate("series");
   return res.json({
-    data : found_arts
-  })
+    data: found_arts,
+  });
 });
 
 exports.get_featured_videos = catch_async_err(async (req, res) => {
-  const found_arts = await Art.find({ featured: true, type: "video" });
+  const found_arts = await Art.find({ featured: true, type: "video" })
+    .populate("owner")
+    .populate("series");
   return res.json({
-    data : found_arts
-  })
+    data: found_arts,
+  });
 });
 
-exports.get_art_by_id = catch_async_err(async (req,res) => {
-  const {id} = req.params
-  const found_arts = await Art.findById(id).populate("series")
+exports.get_art_by_id = catch_async_err(async (req, res) => {
+  const { id } = req.params;
+  const found_arts = await Art.findById(id)
+    .populate("series")
+    .populate("owner");
   return res.json({
-    data : found_arts
-  })
-}) 
+    data: found_arts,
+  });
+});
