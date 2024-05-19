@@ -1,15 +1,16 @@
-import React , {useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Featured.scss";
-import axios from 'axios'
-import { baseArtUrl, ethToUsd } from "../constant";
+import axios from "axios";
+import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
+import { BiFilter } from "react-icons/bi";
 
-const Featured = () => {
-  const navigate = useNavigate()
+const SeriesFeatured = () => {
+  const navigate = useNavigate();
   const [main_data, set_data] = useState();
   const fetch_data = async () => {
-    await axios.get(`${baseArtUrl}/get/featured/images`).then((res) => {
-      set_data(res.data.data.splice(0,3));
+    await axios.get(`${baseSeriesUrl}/get/all`).then((res) => {
+      set_data(res.data.data.splice(0, 3));
     });
   };
   useEffect(() => {
@@ -17,15 +18,15 @@ const Featured = () => {
   });
   return (
     <div className="featured flex col">
-      <h1>FEATURED ART</h1>
+      <h1>FEATURED SERIES</h1>
       <p>
         Art is the mirror where society sees its reflection, and in its trends,
         we find the whispers of tomorrow's culture
       </p>
       <div className="featured-card flex">
-        {
-          main_data?.map((card_item) => {
-            return <div className="card-item flex col">
+        {main_data?.map((card_item) => {
+          return (
+            <div className="card-item flex col">
               <img src={card_item?.image} alt="" />
               <div className="profile flex">
                 <img src={card_item?.owner?.avatar} alt="" />
@@ -35,17 +36,22 @@ const Featured = () => {
                 </div>
               </div>
               <div className="price flex col">
-                <p>PRICE</p>
-                <h2>{card_item?.price} ≈ <span>${Math.round(ethToUsd * card_item?.price)}</span></h2>
+                <p>ToTal arts</p>
+                <h2 className="flex" style={{fontWeight: 600 , gap : '10px'}}>
+                    <BiFilter />{" "}
+                  {card_item?.art?.length}
+                </h2>
               </div>
               <div className="line"></div>
-              <button onClick={() => navigate(`/art/${card_item?._id}`)}>BUY</button>
+              <button>
+                VIEW
+              </button>
             </div>
-          })
-        }
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default Featured;
+export default SeriesFeatured;

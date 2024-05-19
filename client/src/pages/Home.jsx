@@ -5,6 +5,7 @@ import "../styles/Home.scss";
 import axios from "axios";
 import { baseArtUrl, ethToUsd } from "../constant.js";
 import Featured from "../components/Featured.jsx";
+import SeriesFeatured from "../components/FeatredSeries.jsx";
 
 const Home = () => {
   const [main_data, set_data] = useState();
@@ -71,6 +72,7 @@ const Home = () => {
         </div>
       </div>
       <Featured />
+      <SeriesFeatured />
     </div>
   );
 };

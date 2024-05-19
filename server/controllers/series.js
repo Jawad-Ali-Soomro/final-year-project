@@ -40,7 +40,7 @@ exports.delete_art_from_series = catch_async_err(async (req,res) => {
 })
 
 exports.get_all_series = catch_async_err(async (req,res) => {
-    const series_found = await Series.find({})
+    const series_found = await Series.find({}).populate("owner")
     return res.json({
         data : series_found
     })
