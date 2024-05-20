@@ -41,7 +41,7 @@ const Main = () => {
             </div>
             {main_data?.series?.map((series) => {
               return (
-                <div className="content flex">
+                <div className="content flex" key={series._id}>
                   <img src={series?.image} alt="" />
                   <div className="info flex col">
                     <p>SERIES</p> 

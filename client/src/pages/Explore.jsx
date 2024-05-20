@@ -33,7 +33,7 @@ const Explore = () => {
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
-            <div className="card-item flex col">
+            <div className="card-item flex col" key={card_item._id}>
               <div className="main-img">
                 <img src={card_item?.image} alt="" className="main-img" />
               </div>

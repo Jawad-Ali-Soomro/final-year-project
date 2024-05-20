@@ -3,13 +3,13 @@ import "../styles/Featured.scss";
 import axios from "axios";
 import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
-import { BiFilter, BiFilterAlt, BiMenuAltLeft } from "react-icons/bi";
+import { MdStackedBarChart } from "react-icons/md";
 
 const SeriesFeatured = () => {
   const navigate = useNavigate();
   const [main_data, set_data] = useState();
   const fetch_data = async () => {
-    await axios.get(`${baseSeriesUrl}/get/all`).then((res) => {
+    return await axios.get(`${baseSeriesUrl}/get/all`).then((res) => {
       set_data(res.data.data.splice(0, 3));
     });
   };
@@ -26,7 +26,7 @@ const SeriesFeatured = () => {
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
-            <div className="card-item flex col">
+            <div className="card-item flex col" key={card_item._id}>
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>
@@ -39,9 +39,10 @@ const SeriesFeatured = () => {
               </div>
               <div className="price flex col">
                 <p>ToTal arts</p>
-                <h2 className="flex" style={{ fontWeight: 600, gap: "10px" }}>
-                  <BiMenuAltLeft /> {card_item?.art?.length}
-                </h2>
+                <div className="bottom flex" style={{gap:'10px'}}>
+                  <img src="../public/stack.svg" alt="" />
+                  <h2>{card_item?.art?.length}</h2>
+                </div>
               </div>
               <div className="line"></div>
               <button>VIEW</button>

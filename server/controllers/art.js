@@ -11,6 +11,7 @@ exports.create_art = catch_async_err(async (req, res) => {
   created_art.previous_owners.push(owner._id);
   await created_art.save()
   owner.art.push(created_art._id);
+  await owner.save()
   return res.json({
     data: created_art,
   });

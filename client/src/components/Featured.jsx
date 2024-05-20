@@ -41,7 +41,7 @@ const Featured = () => {
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
-            <div className="card-item flex col">
+            <div className="card-item flex col" key={card_item._id}>
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>

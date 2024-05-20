@@ -69,7 +69,7 @@ const Home = () => {
                     <img src={series.image} alt="" />
                     <div className="info flex col">
                       <p>SERIES</p>
-                      <h2>{series.title}</h2>
+                      <h2>{series?.title?.substring(0,12)}</h2>
                     </div>
                   </div>
                 ))}
