@@ -6,8 +6,10 @@ import axios from "axios";
 import { baseArtUrl, ethToUsd } from "../constant.js";
 import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [main_data, set_data] = useState();
   const fetch_data = async () => {
     await axios.get(`${baseArtUrl}/get/featured/images`).then((res) => {
@@ -24,8 +26,8 @@ const Home = () => {
       <div className="trending flex col">
         <h1>TRENDING</h1>
         <p>
-        Art is the mirror where society sees its reflection, and in its trends,
-        we find the whispers of tomorrow's culture
+          Art is the mirror where society sees its reflection, and in its
+          trends, we find the whispers of tomorrow's culture
         </p>
         <div className="card flex">
           <div className="left-content flex col">
@@ -61,10 +63,15 @@ const Home = () => {
             </div>
             <div className="price flex col">
               <p>PRICE</p>
-              <h2>{main_data?.price} ≈ <span>${Math.round(ethToUsd * main_data?.price)}</span></h2>
+              <h2>
+                {main_data?.price} ≈{" "}
+                <span>${Math.round(ethToUsd * main_data?.price)}</span>
+              </h2>
             </div>
             <div className="line"></div>
-            <button>VIEW</button>
+            <button onClick={() => navigate(`/art/${main_data?._id}`)}>
+              VIEW
+            </button>
           </div>
           <div className="right-content flex">
             <img src={main_data?.image} alt="" />

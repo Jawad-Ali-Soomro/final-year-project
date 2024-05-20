@@ -9,6 +9,7 @@ exports.create_art = catch_async_err(async (req, res) => {
   const created_art = await Art.create({ ...req.body, owner: data._id });
   const owner = await User.findById(data._id);
   created_art.previous_owners.push(owner._id);
+  await created_art.save()
   owner.art.push(created_art._id);
   return res.json({
     data: created_art,
@@ -42,7 +43,7 @@ exports.get_featured_videos = catch_async_err(async (req, res) => {
 
 exports.get_art_by_id = catch_async_err(async (req, res) => {
   const { id } = req.params;
-  const found_arts = await Art.findById(id)
+  const found_arts = await Art.findById(id).populate("previous_owners")
     .populate("series")
     .populate("owner");
   return res.json({

@@ -9,7 +9,7 @@ const Featured = () => {
   const [main_data, set_data] = useState();
   const fetch_data = async () => {
     await axios.get(`${baseArtUrl}/get/featured/images`).then((res) => {
-      set_data(res.data.data.splice(0,3));
+      set_data(res.data.data.splice(1,3));
     });
   };
   useEffect(() => {

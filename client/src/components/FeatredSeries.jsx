@@ -3,7 +3,7 @@ import "../styles/Featured.scss";
 import axios from "axios";
 import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
-import { BiFilter } from "react-icons/bi";
+import { BiFilter, BiFilterAlt, BiMenuAltLeft } from "react-icons/bi";
 
 const SeriesFeatured = () => {
   const navigate = useNavigate();
@@ -31,14 +31,14 @@ const SeriesFeatured = () => {
               <div className="profile flex">
                 <img src={card_item?.owner?.avatar} alt="" />
                 <div className="info flex col">
-                  <p>ARTIST</p>
+                  <p>OWNER</p>
                   <h2>{card_item?.owner?.username}</h2>
                 </div>
               </div>
               <div className="price flex col">
                 <p>ToTal arts</p>
                 <h2 className="flex" style={{fontWeight: 600 , gap : '10px'}}>
-                    <BiFilter />{" "}
+                    <BiMenuAltLeft />{" "}
                   {card_item?.art?.length}
                 </h2>
               </div>

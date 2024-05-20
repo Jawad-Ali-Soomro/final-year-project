@@ -1,7 +1,9 @@
 import React from "react";
 import "../styles/Banner.scss";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  const navigate = useNavigate()
   return (
     <div className="banner-wrap flex">
       <div className="content flex col">
