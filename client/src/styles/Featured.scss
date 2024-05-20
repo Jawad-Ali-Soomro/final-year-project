@@ -19,14 +19,20 @@
         justify-content: space-between;
         .card-item {
             position: relative;
-            padding: 20px;
+            padding: 10px;
             border: 1px solid transparent;
             align-items: start;
             gap: 20px;
             transition: .3s;
-            img{
-                width: 330px;
-                height: 330px;
+            .img-sect{
+                overflow: hidden;
+                width: 320px;
+                height: 320px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    transition: .3s;
+                }
             }
             .tags{
                 gap: 10px;
@@ -38,8 +44,10 @@
                 }
             }
             .profile {
+                cursor: pointer;
                 position: relative;
                 gap: 10px;
+                margin-left: 10px;
                 img{
                     width: 40px;
                     height: 40px;
@@ -61,6 +69,7 @@
                 }
             }
             .price {
+                margin-left: 10px;
                 align-items: start;
                 p{
                     font-size: .6rem;
@@ -75,8 +84,9 @@
                 }
             }
             .line {
-                width: 330px;
+                width: 310px;
                 height: 1px;
+                margin-left: 10px;
                 background: rgba($color: #000000, $alpha: 0.3);
             }
             button {
@@ -86,7 +96,7 @@
                 background: #111;
                 color: white;
                 cursor: pointer;
-                margin-left: 210px;
+                margin-left: 200px;
             }
             button:hover {
                 background: transparent;
@@ -94,8 +104,13 @@
                 color: #111;
             }
         }
-    }
-    .card-item:hover {
-        border: 1px solid rgba($color: #000000, $alpha: .5);
+        .card-item:hover {
+            border: 1px solid rgba($color: #000000, $alpha: .5);
+            .img-sect{
+                img{
+                    scale: 1.1;
+                }
+            }
+        }
     }
 }

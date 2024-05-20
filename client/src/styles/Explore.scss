@@ -43,16 +43,15 @@
   }
   .featured-card {
     flex-wrap: wrap;
-    gap: 0 !important;
+    gap: 10px !important;
     .card-item {
-      padding: 0 !important;
-      padding-bottom: 10px !important;
-      gap: 10px !important;
+      padding: 10px !important;
+      gap: 20px !important;
       margin-top: 50px !important;
       overflow: hidden;
       .main-img {
-        width: 330px !important;
-        height: 330px !important;
+        width: 320px !important;
+        height: 290px !important;
         overflow: hidden;
         img{
             width: 100%;
@@ -62,21 +61,6 @@
       }
       .profile {
         margin-left: 10px !important;
-        img {
-          width: 30px !important;
-          height: 30px !important;
-        }
-        .info {
-            p{
-                color: rgba($color: #000000, $alpha: 0.7);
-            }
-            h2 {
-              font-size: 1rem;
-              line-height: 20px;
-              font-weight: 600;
-              color: rgba($color: #000000, $alpha: 0.8);
-            }
-        }
       }
       .line {
         width: 310px !important;
@@ -91,8 +75,7 @@
             color: rgba($color: #000000, $alpha: 0.7);
         }
         h2 {
-          font-size: 1.2rem;
-          line-height: 20px;
+          line-height: 25px;
           font-weight: 600;
           color: rgba($color: #000000, $alpha: 0.8);
         }

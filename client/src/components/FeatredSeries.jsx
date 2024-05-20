@@ -27,7 +27,9 @@ const SeriesFeatured = () => {
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col">
-              <img src={card_item?.image} alt="" />
+              <div className="img-sect flex">
+                <img src={card_item?.image} alt="" />
+              </div>
               <div className="profile flex">
                 <img src={card_item?.owner?.avatar} alt="" />
                 <div className="info flex col">
@@ -37,15 +39,12 @@ const SeriesFeatured = () => {
               </div>
               <div className="price flex col">
                 <p>ToTal arts</p>
-                <h2 className="flex" style={{fontWeight: 600 , gap : '10px'}}>
-                    <BiMenuAltLeft />{" "}
-                  {card_item?.art?.length}
+                <h2 className="flex" style={{ fontWeight: 600, gap: "10px" }}>
+                  <BiMenuAltLeft /> {card_item?.art?.length}
                 </h2>
               </div>
               <div className="line"></div>
-              <button>
-                VIEW
-              </button>
+              <button>VIEW</button>
             </div>
           );
         })}
