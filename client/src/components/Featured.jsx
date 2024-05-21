@@ -48,7 +48,6 @@ const Featured = () => {
               <div className="profile flex">
                 <img src={card_item?.owner?.avatar} alt="" />
                 <div className="info flex col">
-                  <p>ARTIST</p>
                   <h2>{card_item?.owner?.username}</h2>
                 </div>
               </div>

@@ -33,16 +33,19 @@ const SeriesFeatured = () => {
               <div className="profile flex">
                 <img src={card_item?.owner?.avatar} alt="" />
                 <div className="info flex col">
-                  <p>OWNER</p>
                   <h2>{card_item?.owner?.username}</h2>
                 </div>
               </div>
-              <div className="price flex col">
-                <p>ToTal arts</p>
-                <div className="bottom flex" style={{gap:'10px'}}>
-                  <img src="../public/stack.svg" alt="" />
-                  <h2>{card_item?.art?.length}</h2>
-                </div>
+              <div
+                className="price flex"
+                style={{ alignItems: "center", gap: "0px" }}
+              >
+                <p className="flex">
+                  ToTal arts &nbsp; {" "}
+                  <span style={{ fontSize: "1rem" , fontWeight:600 }}>
+                  ≈ &nbsp;{card_item?.art?.length}
+                  </span>
+                </p>
               </div>
               <div className="line"></div>
               <button>VIEW</button>
