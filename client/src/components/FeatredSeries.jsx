@@ -36,9 +36,9 @@ const SeriesFeatured = () => {
                 className="price flex"
                 style={{ alignItems: "center", gap: "0px" }}
               >
-                <p className="flex">
+                <p className="flex" style={{fontSize:'.9rem'}}>
                   ToTal arts &nbsp; {" "}
-                  <span style={{ fontSize: "1rem" , fontWeight:600 }}>
+                  <span style={{ fontSize: "1.2rem" , fontWeight:600 }}>
                   ≈ &nbsp;{card_item?.art?.length}
                   </span>
                 </p>
