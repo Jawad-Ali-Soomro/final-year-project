@@ -19,10 +19,6 @@ const SeriesFeatured = () => {
   return (
     <div className="featured flex col">
       <h1>FEATURED SERIES</h1>
-      <p>
-        Art is the mirror where society sees its reflection, and in its trends,
-        we find the whispers of tomorrow's culture
-      </p>
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (

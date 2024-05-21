@@ -33,7 +33,11 @@ const Explore = () => {
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
-            <div className="card-item flex col" key={card_item._id} onClick={() => navigate(`/art/${card_item._id}`)}>
+            <div
+              className="card-item flex col"
+              key={card_item._id}
+             
+            >
               <div className="main-img">
                 <img src={card_item?.image} alt="" className="main-img" />
               </div>
@@ -43,7 +47,6 @@ const Explore = () => {
                   <h2>{card_item?.owner?.username}</h2>
                 </div>
               </div>
-              <div className="line"></div>
               <div className="price flex col">
                 <p>PRICE</p>
                 <h2>
@@ -51,6 +54,8 @@ const Explore = () => {
                   <span>${Math.round(ethToUsd * card_item?.price)}</span>
                 </h2>
               </div>
+              <div className="line"></div>
+              <button  onClick={() => navigate(`/art/${card_item._id}`)}>BUY</button>
             </div>
           );
         })}

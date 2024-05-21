@@ -1,12 +1,13 @@
 .header-wrap {
     justify-content: space-between ;
-    height: 12vh;
+    height: 10vh;
     top: 0;
     width: calc(100% - 200px);
     position: absolute;
     background: white;
     top: 0;
     z-index: 1000;
+    border-radius: 0;
     .left-content  {
         gap: 50px;
         .logo {
@@ -60,6 +61,7 @@
                     position: absolute;
                     align-items: start;
                     top: 30px;
+                    border-radius: 0;
                     right: 0;
                     cursor: auto;
                     padding: 30px;

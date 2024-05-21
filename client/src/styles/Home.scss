@@ -4,7 +4,7 @@
   align-items: start;
   gap: 10px;
   h1 {
-    font-weight: 600;
+    font-weight: 300;
     font-family: "Poppins";
   }
   p {
@@ -14,13 +14,18 @@
     font-family: "Poppins";
   }
   .card {
-    margin-top: 30px;
-    width: 100%;
+    position: relative;
+    margin-top: 100px;
     padding: 20px;
-    border: 1px solid rgba($color: #000000, $alpha: 0.3);
     justify-content: space-between;
+    background: white;
+    z-index: 10;
     .left-content {
+      z-index: 10;
       gap: 30px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.3);
+      padding: 30px;
+      background: white;
       align-items: start;
       h1 {
         text-transform: uppercase;
@@ -71,7 +76,7 @@
           font-weight: 600;
           line-height: 30px;
           span {
-            font-size: 1rem;  
+            font-size: 1rem;
             font-weight: 400;
           }
         }
@@ -98,9 +103,88 @@
     }
     .right-content {
       img {
-        width: 450px;
-        height: 450px;
+        position: absolute;
+        right: -400px;
+        width: 500px;
+        height: 50 0px;
+        z-index: -1;
       }
+    }
+  }
+}
+
+.services {
+  position: relative;
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .bg {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+  .img {
+    background: white;
+    z-index: 1;
+    gap: 20px;
+    .step {
+      padding: 5px 20px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.3);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+  }
+  .img:first-child {
+    margin-top: 50px !important;
+  }
+}
+
+.brief {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  align-items: start;
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: rgba($color: #000000, $alpha: 0.8);
+    span {
+      background-image: linear-gradient(
+        to right,
+        #111,
+        #fff
+      ); 
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  .main-card {
+    margin-top: 50px;
+    width: 100%;
+    justify-content: space-between;
+    .card-ser {
+      gap: 10px;
+      width: 330px;
+      height: 120px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+      .icon {
+        font-size: 2rem;
+        color: rgba($color: #000000, $alpha: 0.8);
+      }
+      h2 {
+        text-transform: uppercase;
+        font-weight: 300;
+        color: rgba($color: #000000, $alpha: 0.8);
+      }
+    }
+    .card-ser:hover {
+      border: 1px solid;
+      color: #111;
     }
   }
 }

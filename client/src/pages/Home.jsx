@@ -7,6 +7,7 @@ import { baseArtUrl, ethToUsd } from "../constant.js";
 import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
+import { BiHelpCircle, BiLogoDiscordAlt , BiLogoTwitter } from "react-icons/bi";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,6 +40,37 @@ const Home = () => {
     <div>
       <Header />
       <Banner />
+      <div className="services flex">
+        <img src="../public/wave.svg" alt="" className="bg" />
+        <div className="img flex col">
+          <img src="../public/service-1.png" alt="" className="img-1" />
+          <div className="step flex">
+            step 1
+          </div>
+          <h2>filter & discover</h2>
+        </div>
+        <div className="img flex col">
+          <img src="../public/service-2.png" alt="" className="img-1" />
+          <div className="step flex">
+            step 2
+          </div>
+          <h2>connect wallet</h2>
+        </div>
+        <div className="img flex col">
+          <img src="../public/service-3.png" alt="" className="img-1" />
+          <div className="step flex">
+            step 3
+          </div>
+          <h2>start selling</h2>
+        </div>
+        <div className="img flex col">
+          <img src="../public/service-4.png" alt="" className="img-1" />
+          <div className="step flex">
+            step 4
+          </div>
+          <h2>earn money</h2>
+        </div>
+      </div>
       <div className="trending flex col">
         <h1>TRENDING</h1>
         <p>
@@ -91,6 +123,23 @@ const Home = () => {
       </div>
       <Featured />
       <SeriesFeatured />
+      <div className="brief flex col">
+      <h1>The Art Market <span>OnCHain</span></h1>
+     <div className="main-card flex">
+     <div className="card-ser flex col">
+        <BiHelpCircle className="icon" />
+        <h2>help center</h2>
+      </div>
+      <div className="card-ser flex col">
+        <BiLogoDiscordAlt className="icon" />
+        <h2>join discord</h2>
+      </div>
+      <div className="card-ser flex col">
+        <BiLogoTwitter className="icon" />
+        <h2>join twitter</h2>
+      </div>
+     </div>
+      </div>
     </div>
   );
 };

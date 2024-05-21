@@ -12,6 +12,7 @@
       background-image: linear-gradient(to right, #111, #555);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
     }
     button {
       width: 200px;
@@ -26,7 +27,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 300;
       cursor: pointer;
     }
     .length {
@@ -44,7 +45,6 @@
     }
   }
   .featured-card {
-    cursor: pointer;
     flex-wrap: wrap;
     gap: 10px !important;
     .card-item {
@@ -53,8 +53,8 @@
       margin-top: 50px !important;
       overflow: hidden;
       .main-img {
-        width: 240px !important;
-        height: 250px !important;
+        width: 320px;
+        height: 320px;
         overflow: hidden;
         img{
             width: 100%;
@@ -71,10 +71,10 @@
         }
       }
       .line {
-        width: 220px !important;
+        width: 300px !important;
       }
       button {
-        margin-left: 120px !important;
+        margin-left: 190px !important;
       }
       .price {
         p{
