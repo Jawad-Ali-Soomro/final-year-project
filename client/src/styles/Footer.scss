@@ -1,0 +1,84 @@
+.footer-wrap {
+    margin-top: 100px;
+    width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  align-items: start;
+  justify-content: space-between;
+  border-top: 1px solid;
+  border-radius: 0;
+  .left {
+    gap: 10px;
+    align-items: start;
+    .logo {
+      position: relative;
+      cursor: pointer;
+      img {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 40px;
+        transform: rotate(100deg);
+      }
+      h1 {
+        font-weight: 300;
+        background-image: linear-gradient(to right, #111, #999);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    p {
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    .subscribe {
+      background: white;
+      width: 450px;
+      height: 50px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.3);
+      overflow: hidden;
+      input {
+        width: 290px;
+        padding-left: 10px;
+        height: 50px;
+        border: none;
+        outline: none;
+      }
+      button {
+        width: 145px;
+        height: 45px;
+        background: #111;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .right {
+    align-items: start;
+    gap: 20px;
+    h2{
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba($color: #000000, $alpha: 0.6);
+    }
+    ul{
+        align-items: start;
+        li{
+            cursor: pointer;
+            font-weight: 300;
+            font-size: .8rem;
+            list-style: none;
+            text-transform: uppercase;
+        }
+        .link {
+            font-size: 1.3rem;
+            color: rgba($color: #000000, $alpha: 0.8);
+        }
+    }
+    ul:last-child {
+        gap: 10px;
+    }
+  }
+}

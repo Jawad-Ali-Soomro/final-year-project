@@ -27,21 +27,23 @@ const SeriesFeatured = () => {
                 <img src={card_item?.image} alt="" />
               </div>
               <div className="profile flex">
-                <img src={card_item?.owner?.avatar} alt="" />
-                <div className="info flex col">
-                  <h2>{card_item?.owner?.username}</h2>
+                <div className="left flex">
+                  <img src={card_item?.owner?.avatar} alt="" />
+                  <div className="info flex col">
+                    <h2>{card_item?.owner?.username}</h2>
+                  </div>
+                </div>
+                <div className="right flex col">
+                  <div className="dot"></div>
+                  <div className="dot"></div>
+                  <div className="dot"></div>
                 </div>
               </div>
               <div
                 className="price flex"
                 style={{ alignItems: "center", gap: "0px" }}
               >
-                <p className="flex" style={{fontSize:'.9rem'}}>
-                  ToTal arts &nbsp; {" "}
-                  <span style={{ fontSize: "1.2rem" , fontWeight:600 }}>
-                  ≈ &nbsp;{card_item?.art?.length}
-                  </span>
-                </p>
+                <p style={{fontSize : '.9rem' , color:'rgba(0,0,0,.5)'}}>{card_item?.art?.length} artworks</p>
               </div>
               <div className="line"></div>
               <button>VIEW</button>

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Featured.scss";
 import axios from "axios";
-import { baseArtUrl, ethToUsd } from "../constant";
+import { baseArtUrl, baseUserUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
-import { BiUserPlus } from "react-icons/bi";
 
-const Featured = () => {
+const Spotlight = () => {
   const navigate = useNavigate();
-  const [show_menu , set_menu] = useState(false)
   const [main_data, set_data] = useState();
 
   const fetch_data = async () => {
     try {
-      const response = await axios.get(`${baseArtUrl}/get/featured/images`);
-      const featuredImages = response.data.data;
+      const response = await axios.get(
+        `${baseUserUrl}/get/664b6bc32cd61128324472be`
+      );
+      const featuredImages = response.data.data.art;
       const shuffledImages = shuffleArray(featuredImages);
       const randomFeaturedImages = shuffledImages.slice(0, 3);
       set_data(randomFeaturedImages);
@@ -35,7 +35,8 @@ const Featured = () => {
 
   return (
     <div className="featured flex col">
-      <h1>FEATURED ART</h1>
+      <h1>SPOTLIGHT : BOTTO</h1>
+      <p style={{fontSize:'.8rem'}}>Through his animations, Botto explores the impact of contemporary culture on our everyday lives, offering a unique and fresh perspective on the world around us.</p>
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
@@ -43,19 +44,32 @@ const Featured = () => {
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>
-              <div className="profile flex">
-               <div className="left flex">
-               <img src={card_item?.owner?.avatar} alt="" />
-                <div className="info flex col">
-                  <h2>{card_item?.owner?.username}</h2>
+              <div
+                className="profile flex"
+                style={{
+                  position: "absolute",
+                  background: "whites",
+                  width: "30px",
+                  height: "30px",
+                  top : '30px',
+                  right: '30px',
+                  border : 'none'
+                }}
+              >
+                <div
+                  className="right flex col"
+                  style={{
+                    position: "absolute",
+                    background: "white",
+                    width: "30px",
+                    height: "30px",
+                    gap:'2px'
+                  }}
+                >
+                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
+                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
+                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
                 </div>
-               </div>
-               <div className="right flex col">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-                
-               </div>
               </div>
               <div className="price flex col">
                 <p>PRICE</p>
@@ -76,4 +90,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default Spotlight;

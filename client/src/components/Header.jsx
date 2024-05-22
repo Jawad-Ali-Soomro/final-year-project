@@ -9,8 +9,10 @@ import {
   BiSearch,
 } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { connectMetamask } from "../constant";
 
 const Header = () => {
+  const metaMaskId = window.localStorage.getItem("token");
   const active_link = window.location.pathname;
   const navigate = useNavigate();
   const [show_menu, set_menu] = useState(false);
@@ -35,13 +37,20 @@ const Header = () => {
                 active_link == "/explore" ? "2px solid" : "none"
               }`,
               paddingBottom: `${active_link == "/explore" ? "5px" : "none"}`,
-              fontWeight: `${active_link == "/explore" ? "400" : "300"}`,
             }}
-            onClick={() => navigate('/explore')}
+            onClick={() => navigate("/explore")}
           >
             ARTS
           </li>
-          <li>SERIES</li>
+          <li
+          style={{
+            borderBottom: `${
+              active_link == "/explore/series" ? "2px solid" : "none"
+            }`,
+            paddingBottom: `${active_link == "/explore/series" ? "5px" : "none"}`,
+          }}
+          onClick={() => navigate("/explore/series")}
+          >SERIES</li>
           <li>TRENDING</li>
           <li>FEATURED</li>
           <div className="menu flex col" onClick={() => set_menu(!show_menu)}>
@@ -83,7 +92,15 @@ const Header = () => {
               this
             )}
           </div>
-          <button>CONNECT</button>
+          <button
+            onClick={() =>
+              metaMaskId !== null || undefined
+                ? navigate("/login")
+                : connectMetamask()
+            }
+          >
+            {metaMaskId !== null || undefined ? "LOGIN" : "CONNECT"}
+          </button>
         </ul>
       </div>
     </div>

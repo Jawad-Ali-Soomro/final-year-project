@@ -3,28 +3,29 @@ import "../styles/Explore.scss";
 import { FaFilter } from "react-icons/fa";
 import Header from "../components/Header";
 import axios from "axios";
-import { baseArtUrl, ethToUsd } from "../constant";
+import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import "../styles/Featured.scss";
 import { useNavigate } from "react-router-dom";
 import { BiMoveVertical } from "react-icons/bi";
 import Footer from "../components/Footer";
 
-const Explore = () => {
+const Series = () => {
   const navigate = useNavigate();
   const [main_data, set_data] = useState();
   const fetch_data = async () => {
-    await axios.get(`${baseArtUrl}/get/all`).then((res) => {
+    await axios.get(`${baseSeriesUrl}/get/all`).then((res) => {
       set_data(res.data.data);
     });
   };
   useEffect(() => {
     fetch_data();
   });
+  console.log(main_data);
   return (
     <div className="explore-main featured flex col">
       <Header />
       <div className="top flex">
-        <h1>Explore</h1>
+        <h1>explore series</h1>
         <button>
           FILTERS <FaFilter />
         </button>
@@ -56,15 +57,11 @@ const Explore = () => {
                   <div className="dot"></div>
                 </div>
               </div>
-              <div className="price flex col">
-                <p>PRICE</p>
-                <h2>
-                  {card_item?.price} ≈{" "}
-                  <span>${Math.round(ethToUsd * card_item?.price)}</span>
-                </h2>
+              <div className="price flex">
+                <h2 style={{fontWeight:'400'}}>TOTAL ARTS ≈ {card_item?.art?.length}</h2>
               </div>
               <div className="line"></div>
-              <button  onClick={() => navigate(`/art/${card_item._id}`)}>BUY</button>
+              <button  onClick={() => navigate(`/art/${card_item._id}`)}>VIEW</button>
             </div>
           );
         })}
@@ -74,4 +71,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default Series;

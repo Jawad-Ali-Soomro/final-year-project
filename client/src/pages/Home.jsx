@@ -8,6 +8,8 @@ import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
 import { BiHelpCircle, BiLogoDiscordAlt , BiLogoTwitter } from "react-icons/bi";
+import Spotlight from "../components/Spotlight.jsx";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -43,30 +45,26 @@ const Home = () => {
       <div className="services flex">
         <img src="../public/wave.svg" alt="" className="bg" />
         <div className="img flex col">
-          <img src="../public/service-1.png" alt="" className="img-1" />
-          <div className="step flex">
-            step 1
+          <div className="step flex" style={{marginTop:'120px'}}>
+            01
           </div>
           <h2>filter & discover</h2>
         </div>
         <div className="img flex col">
-          <img src="../public/service-2.png" alt="" className="img-1" />
           <div className="step flex">
-            step 2
+            02
           </div>
           <h2>connect wallet</h2>
         </div>
         <div className="img flex col">
-          <img src="../public/service-3.png" alt="" className="img-1" />
-          <div className="step flex">
-            step 3
+          <div className="step flex" style={{marginTop:'60px'}}>
+            03
           </div>
           <h2>start selling</h2>
         </div>
         <div className="img flex col">
-          <img src="../public/service-4.png" alt="" className="img-1" />
           <div className="step flex">
-            step 4
+            04
           </div>
           <h2>earn money</h2>
         </div>
@@ -123,6 +121,7 @@ const Home = () => {
       </div>
       <Featured />
       <SeriesFeatured />
+      <Spotlight />
       <div className="brief flex col">
       <h1>The Art Market <span>OnCHain</span></h1>
      <div className="main-card flex">
@@ -140,6 +139,7 @@ const Home = () => {
       </div>
      </div>
       </div>
+      <Footer />
     </div>
   );
 };
