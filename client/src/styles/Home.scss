@@ -1,6 +1,7 @@
 .trending {
-  width: calc(100% - 200px);
+  width: calc(100%);
   height: 88vh;
+  margin-top: 12vh;
   align-items: start;
   gap: 10px;
   h1 {
@@ -12,20 +13,16 @@
     font-weight: 300;
   }
   .card {
-    position: relative;
-    margin-top: 200px;
-    margin-left: 100px;
-    padding: 20px;
-    justify-content: space-between;
-    background: white;
+    width: 100% !important;
+    justify-content: space-between !important;
     z-index: 10;
     .left-content {
       z-index: 10;
       gap: 30px;
-      border: 1px solid rgba($color: #000000, $alpha: 0.3);
       padding: 30px;
       background: white;
       align-items: start;
+      margin-top: 150px;
       h1 {
         text-transform: capitalize;
         font-size: 1.5rem;
@@ -100,8 +97,6 @@
     }
     .right-content {
       img {
-        position: absolute;
-        right: -400px;
         width: 500px;
         height: 500px;
         z-index: -1;

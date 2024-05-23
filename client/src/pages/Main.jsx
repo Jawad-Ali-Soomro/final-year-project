@@ -15,17 +15,9 @@ const Main = () => {
     await axios
       .get(`${baseArtUrl}/get/art/${id}`)
       .then((res) => set_data(res.data.data));
-  };
-  const fetch_more = async () => {
-    await axios
-      .get(`${baseUserUrl}/get/${main_data?.owner?._id}`)
-      .then((res) => {
-        set_more(res.data.data.art.splice(0, 3));
-      });
-  };
+  }
   useEffect(() => {
     fetch_data();
-    fetch_more();
   });
   return (
     <div>

@@ -7,7 +7,7 @@ import { baseArtUrl, ethToUsd } from "../constant.js";
 import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
-import { BiHelpCircle, BiLogoDiscordAlt , BiLogoTwitter } from "react-icons/bi";
+import { BiHelpCircle, BiLogoDiscordAlt, BiLogoTwitter } from "react-icons/bi";
 import Spotlight from "../components/Spotlight.jsx";
 import Footer from "../components/Footer.jsx";
 import Login from "../components/Login.jsx";
@@ -43,13 +43,11 @@ const Home = () => {
     <div>
       <Header />
       <div className="trending flex col">
-        {/* <h1>TRENDING</h1>
-        <p>
-          Art is the mirror where society sees its reflection, and in its
-          trends, we find the whispers of tomorrow's culture
-        </p> */}
         {main_data?.map((art) => (
           <div className="card flex" key={art._id}>
+            <div className="right-content flex">
+              <img src={art.image} alt="" />
+            </div>
             <div className="left-content flex col">
               <h1>{art.title}</h1>
               <div className="tags flex" style={{ gap: "10px" }}>
@@ -72,7 +70,7 @@ const Home = () => {
                     <img src={series.image} alt="" />
                     <div className="info flex col">
                       <p>SERIES</p>
-                      <h2>{series?.title?.substring(0,12)}</h2>
+                      <h2>{series?.title?.substring(0, 12)}</h2>
                     </div>
                   </div>
                 ))}
@@ -85,9 +83,6 @@ const Home = () => {
               </div>
               <div className="line"></div>
               <button onClick={() => navigate(`/art/${art._id}`)}>VIEW</button>
-            </div>
-            <div className="right-content flex">
-              <img src={art.image} alt="" />
             </div>
           </div>
         ))}
