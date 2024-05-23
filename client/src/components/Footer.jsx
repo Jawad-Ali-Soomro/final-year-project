@@ -8,8 +8,7 @@ const Footer = () => {
     <div className='footer-wrap flex'>
       <div className="left flex col">
       <div className="logo flex">
-        <img src="../public/logo.svg" alt="" />
-        <h1>ARTHUB</h1>
+        <h1>Arthub</h1>
       </div>
         <p>artwork and news to your box</p>
         <div className="subscribe flex">
@@ -33,11 +32,11 @@ const Footer = () => {
       </div>
       <div className="right flex col">
         <h2>FEATURED</h2>
-        <ul className="flex col" style={{gap: '5px'}}>
-            <li>FEATURED ART</li>
-            <li> FEATURED SERIES</li>
+        <ul className="flex col" style={{gap: '10px'}}>
+            <li>Featured Art</li>
+            <li> Featured Series</li>
             <li>Top Artists</li>
-            <li>JOIn as an artist</li>
+            <li>Join As An Artist</li>
         </ul>
       </div>
     </div>

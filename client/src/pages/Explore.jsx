@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Explore.scss";
-import { FaFilter } from "react-icons/fa";
 import Header from "../components/Header";
 import axios from "axios";
 import { baseArtUrl, ethToUsd } from "../constant";
 import "../styles/Featured.scss";
 import { useNavigate } from "react-router-dom";
-import { BiMoveVertical } from "react-icons/bi";
 import Footer from "../components/Footer";
 
 const Explore = () => {
@@ -25,8 +23,9 @@ const Explore = () => {
       <Header />
       <div className="top flex">
         <h1>Explore</h1>
-        <button>
-          FILTERS <FaFilter />
+        <button className="flex">
+          Filters
+          <img src="../public/filter.svg" alt="" />
         </button>
         <div className="length flex">
           <h2>{main_data?.length} Results Found!</h2>

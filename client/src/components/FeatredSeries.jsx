@@ -26,6 +26,8 @@ const SeriesFeatured = () => {
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>
+              <h2 style={{fontSize:'1.2rem' , fontWeight:400 , paddingLeft:'10px'}}>{card_item?.title}</h2>
+              
               <div className="profile flex">
                 <div className="left flex">
                   <img src={card_item?.owner?.avatar} alt="" />
@@ -33,11 +35,7 @@ const SeriesFeatured = () => {
                     <h2>{card_item?.owner?.username}</h2>
                   </div>
                 </div>
-                <div className="right flex col">
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                </div>
+                
               </div>
               <div
                 className="price flex"

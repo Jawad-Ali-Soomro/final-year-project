@@ -26,8 +26,9 @@ const Series = () => {
       <Header />
       <div className="top flex">
         <h1>explore series</h1>
-        <button>
-          FILTERS <FaFilter />
+        <button className="flex">
+          Filters
+          <img src="../public/filter.svg" alt="" />
         </button>
         <div className="length flex">
           <h2>{main_data?.length} Results Found!</h2>
@@ -58,7 +59,7 @@ const Series = () => {
                 </div>
               </div>
               <div className="price flex">
-                <h2 style={{fontWeight:'400'}}>TOTAL ARTS ≈ {card_item?.art?.length}</h2>
+                <h2 style={{fontWeight:'400'}}>Total Arts ≈ {card_item?.art?.length}</h2>
               </div>
               <div className="line"></div>
               <button  onClick={() => navigate(`/art/${card_item._id}`)}>VIEW</button>

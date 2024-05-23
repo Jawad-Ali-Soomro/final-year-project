@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { BiHelpCircle, BiLogoDiscordAlt , BiLogoTwitter } from "react-icons/bi";
 import Spotlight from "../components/Spotlight.jsx";
 import Footer from "../components/Footer.jsx";
+import Login from "../components/Login.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -122,8 +123,8 @@ const Home = () => {
       <Featured />
       <SeriesFeatured />
       <Spotlight />
-      <div className="brief flex col">
-      <h1>The Art Market <span>OnCHain</span></h1>
+      {/* <div className="brief flex col">
+      <h1>The Art Market <span>Onchain</span></h1>
      <div className="main-card flex">
      <div className="card-ser flex col">
         <BiHelpCircle className="icon" />
@@ -138,7 +139,7 @@ const Home = () => {
         <h2>join twitter</h2>
       </div>
      </div>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

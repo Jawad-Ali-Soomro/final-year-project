@@ -56,20 +56,6 @@ const Spotlight = () => {
                   border : 'none'
                 }}
               >
-                <div
-                  className="right flex col"
-                  style={{
-                    position: "absolute",
-                    background: "white",
-                    width: "30px",
-                    height: "30px",
-                    gap:'2px'
-                  }}
-                >
-                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
-                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
-                  <div className="dot" style={{width:'3px' , height:'3px'}}></div>
-                </div>
               </div>
               <div className="price flex col">
                 <p>PRICE</p>

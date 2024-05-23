@@ -8,12 +8,11 @@
     position: relative;
     h1 {
       font-size: 5rem;
-      font-family: "Poppins";
       font-weight: 900;
       background-image: linear-gradient(to right, #111, #555);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
     button {
       width: 200px;
@@ -27,8 +26,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1rem;
-      font-weight: 300;
+      font-size: 1.2rem;
+      font-weight: 400;
       cursor: pointer;
     }
     .length {
@@ -40,7 +39,7 @@
       top: calc(100% - 25px);
       h2 {
         font-weight: 400;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-size: 1rem;
       }
     }

@@ -10,12 +10,23 @@ import {
 } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { connectMetamask } from "../constant";
+import Login from "./Login";
 
 const Header = () => {
   const metaMaskId = window.localStorage.getItem("token");
   const active_link = window.location.pathname;
   const navigate = useNavigate();
   const [show_menu, set_menu] = useState(false);
+  const [show_login, set_login] = useState(false);
+
+  const openLogin = () => {
+    set_login(true);
+  };
+
+  const closeLogin = () => {
+    set_login(false);
+  };
+
   return (
     <div className="header-wrap flex">
       <div className="left-content flex">
@@ -26,7 +37,7 @@ const Header = () => {
           <button className="flex">
             <BiSearch />
           </button>
-          <input type="text" placeholder="SEARCH ARTHUB" />
+          <input type="text" placeholder="Search Arthub" />
         </div>
       </div>
       <div className="right-content flex">
@@ -40,19 +51,23 @@ const Header = () => {
             }}
             onClick={() => navigate("/explore")}
           >
-            ARTS
+            Arts
           </li>
           <li
-          style={{
-            borderBottom: `${
-              active_link == "/explore/series" ? "2px solid" : "none"
-            }`,
-            paddingBottom: `${active_link == "/explore/series" ? "5px" : "none"}`,
-          }}
-          onClick={() => navigate("/explore/series")}
-          >SERIES</li>
-          <li>TRENDING</li>
-          <li>FEATURED</li>
+            style={{
+              borderBottom: `${
+                active_link == "/explore/series" ? "2px solid" : "none"
+              }`,
+              paddingBottom: `${
+                active_link == "/explore/series" ? "5px" : "none"
+              }`,
+            }}
+            onClick={() => navigate("/explore/series")}
+          >
+            Series
+          </li>
+          <li>Trending</li>
+          <li>Featured</li>
           <div className="menu flex col" onClick={() => set_menu(!show_menu)}>
             <div></div>
             <div></div>
@@ -60,14 +75,14 @@ const Header = () => {
             {show_menu == true ? (
               <div className="main-menu flex col">
                 <ul className="flex col">
-                  <li>PROFILE</li>
-                  <li>REGISTER</li>
+                  <li>Profile</li>
+                  <li>Register</li>
                 </ul>
                 <div className="line"></div>
                 <ul className="flex col">
-                  <li>HELP CENTER</li>
-                  <li>FEATURED ART</li>
-                  <li>FEATURED SERIES</li>
+                  <li>Help Center</li>
+                  <li>Featured Art</li>
+                  <li>Featured Series</li>
                 </ul>
                 <div className="line"></div>
                 <div className="links flex">
@@ -95,13 +110,14 @@ const Header = () => {
           <button
             onClick={() =>
               metaMaskId !== null || undefined
-                ? navigate("/login")
+                ? openLogin()
                 : connectMetamask()
             }
           >
             {metaMaskId !== null || undefined ? "LOGIN" : "CONNECT"}
           </button>
         </ul>
+        {show_login === true && <Login onClose={closeLogin} />}
       </div>
     </div>
   );
