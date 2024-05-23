@@ -42,13 +42,12 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Banner />
       <div className="trending flex col">
-        <h1>TRENDING</h1>
+        {/* <h1>TRENDING</h1>
         <p>
           Art is the mirror where society sees its reflection, and in its
           trends, we find the whispers of tomorrow's culture
-        </p>
+        </p> */}
         {main_data?.map((art) => (
           <div className="card flex" key={art._id}>
             <div className="left-content flex col">
@@ -93,26 +92,10 @@ const Home = () => {
           </div>
         ))}
       </div>
+      {/* <Banner /> */}
       <Featured />
       <SeriesFeatured />
       <Spotlight />
-      {/* <div className="brief flex col">
-      <h1>The Art Market <span>Onchain</span></h1>
-     <div className="main-card flex">
-     <div className="card-ser flex col">
-        <BiHelpCircle className="icon" />
-        <h2>help center</h2>
-      </div>
-      <div className="card-ser flex col">
-        <BiLogoDiscordAlt className="icon" />
-        <h2>join discord</h2>
-      </div>
-      <div className="card-ser flex col">
-        <BiLogoTwitter className="icon" />
-        <h2>join twitter</h2>
-      </div>
-     </div>
-      </div> */}
       <Footer />
     </div>
   );

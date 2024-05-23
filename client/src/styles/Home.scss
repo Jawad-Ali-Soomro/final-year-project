@@ -1,6 +1,6 @@
 .trending {
   width: calc(100% - 200px);
-  padding: 100px;
+  height: 88vh;
   align-items: start;
   gap: 10px;
   h1 {
@@ -13,7 +13,8 @@
   }
   .card {
     position: relative;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-left: 100px;
     padding: 20px;
     justify-content: space-between;
     background: white;

@@ -3,7 +3,7 @@
     height: 12vh;
     top: 0;
     width: calc(100% - 200px);
-    position: absolute;
+    position: fixed;
     background: white;
     top: 0;
     z-index: 1000;
@@ -39,8 +39,8 @@
         ul{
             gap: 30px;
             li{
-                font-size: 1.1rem;
-                font-weight: 400;
+                text-transform: uppercase;
+                font-size: .9rem;
                 list-style: none;
                 cursor: pointer;
             }
