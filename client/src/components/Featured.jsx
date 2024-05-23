@@ -7,7 +7,7 @@ import { BiUserPlus } from "react-icons/bi";
 
 const Featured = () => {
   const navigate = useNavigate();
-  const [show_menu , set_menu] = useState(false)
+  const [show_menu, set_menu] = useState(false);
   const [main_data, set_data] = useState();
 
   const fetch_data = async () => {
@@ -41,17 +41,17 @@ const Featured = () => {
           return (
             <div className="card-item flex col" key={card_item._id}>
               <div className="img-sect flex">
-                <img src={card_item?.image} alt="" />
+                <img src={card_item?.image} alt="" onClick={() => navigate(`/art/${card_item?._id}`)} />
               </div>
-              <h2 style={{fontSize:'1rem' , fontWeight:400 , paddingLeft:'10px'}}>{card_item?.title}</h2>
-              <div className="profile flex">
-               <div className="left flex">
-               <img src={card_item?.owner?.avatar} alt="" />
-                <div className="info flex col">
-                  <h2>{card_item?.owner?.username}</h2>
-                </div>
-               </div>
-              </div>
+              <h2
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: 400,
+                  paddingLeft: "10px",
+                }}
+              >
+                {card_item?.title}
+              </h2>
               <div className="price flex col">
                 <p>PRICE</p>
                 <h2>
@@ -59,10 +59,15 @@ const Featured = () => {
                   <span>${Math.round(ethToUsd * card_item?.price)}</span>
                 </h2>
               </div>
-              <div className="line"></div>
-              <button onClick={() => navigate(`/art/${card_item?._id}`)}>
-                BUY
-              </button>
+                <div className="line"></div>
+              <div className="profile flex">
+                <div className="left flex">
+                  <img src={card_item?.owner?.avatar} alt="" />
+                  <div className="info flex col">
+                    <h2>{card_item?.owner?.username}</h2>
+                  </div>
+                </div>
+              </div>
             </div>
           );
         })}

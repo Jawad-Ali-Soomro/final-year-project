@@ -43,33 +43,6 @@ const Home = () => {
     <div>
       <Header />
       <Banner />
-      <div className="services flex">
-        <img src="../public/wave.svg" alt="" className="bg" />
-        <div className="img flex col">
-          <div className="step flex" style={{marginTop:'120px'}}>
-            01
-          </div>
-          <h2>filter & discover</h2>
-        </div>
-        <div className="img flex col">
-          <div className="step flex">
-            02
-          </div>
-          <h2>connect wallet</h2>
-        </div>
-        <div className="img flex col">
-          <div className="step flex" style={{marginTop:'60px'}}>
-            03
-          </div>
-          <h2>start selling</h2>
-        </div>
-        <div className="img flex col">
-          <div className="step flex">
-            04
-          </div>
-          <h2>earn money</h2>
-        </div>
-      </div>
       <div className="trending flex col">
         <h1>TRENDING</h1>
         <p>

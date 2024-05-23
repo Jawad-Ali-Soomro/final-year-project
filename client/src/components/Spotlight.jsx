@@ -44,6 +44,15 @@ const Spotlight = () => {
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>
+              <h2
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 400,
+                    paddingLeft: "10px",
+                  }}
+                >
+                  {card_item?.title}
+                </h2>
               <div
                 className="profile flex"
                 style={{

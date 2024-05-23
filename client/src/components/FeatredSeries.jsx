@@ -26,8 +26,25 @@ const SeriesFeatured = () => {
               <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
               </div>
-              <h2 style={{fontSize:'1.2rem' , fontWeight:400 , paddingLeft:'10px'}}>{card_item?.title}</h2>
-              
+              <h2
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: 400,
+                  paddingLeft: "10px",
+                }}
+              >
+                {card_item?.title}
+              </h2>
+
+              <div
+                className="price flex"
+                style={{ alignItems: "center", gap: "0px" }}
+              >
+                <p style={{ fontSize: ".9rem", color: "rgba(0,0,0,.5)" }}>
+                  {card_item?.art?.length} Artworks
+                </p>
+              </div>
+                <div className="line"></div>
               <div className="profile flex">
                 <div className="left flex">
                   <img src={card_item?.owner?.avatar} alt="" />
@@ -35,16 +52,7 @@ const SeriesFeatured = () => {
                     <h2>{card_item?.owner?.username}</h2>
                   </div>
                 </div>
-                
               </div>
-              <div
-                className="price flex"
-                style={{ alignItems: "center", gap: "0px" }}
-              >
-                <p style={{fontSize : '.9rem' , color:'rgba(0,0,0,.5)'}}>{card_item?.art?.length} artworks</p>
-              </div>
-              <div className="line"></div>
-              <button>VIEW</button>
             </div>
           );
         })}

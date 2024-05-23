@@ -10,7 +10,7 @@ const Banner = () => {
         <h1>Discover, Collect, & sell art</h1>
         <p>
           Discover the most outstanding digital arts in all topics of life,
-          create you art and sell it here.
+          create your art and sell it here.
         </p>
         <button>EXPLORE</button>
       </div>
