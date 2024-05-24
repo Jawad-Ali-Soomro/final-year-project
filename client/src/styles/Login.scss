@@ -9,13 +9,6 @@
   .login-container {
     padding: 50px;
     background: white;
-    .left {
-      width: 400px;
-      height: 400px;
-      img {
-        width: 100%;
-      }
-    }
     .right {
       width: 330px;
       height: 400px;
@@ -26,8 +19,7 @@
         text-transform: uppercase;
       }
       p {
-        font-size: 1.2rem;
-        text-transform: capitalize;
+        font-size: .9rem;
       }
       .input-wrap {
         width: 300px;

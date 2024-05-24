@@ -2,7 +2,7 @@ const catch_async_err = require("../middlewares/async-err");
 const de_tokenize_data = require("../middlewares/de-tokenize-data");
 const tokenize_data = require("../middlewares/sign-token");
 const User = require("../models/user");
-const Art = require("../models/art")
+const Art = require("../models/art");
 const bcrypt = require("bcryptjs");
 
 exports.create_account = catch_async_err(async (req, res) => {
@@ -14,10 +14,14 @@ exports.create_account = catch_async_err(async (req, res) => {
     });
   } else if (find_user_handle) {
     return res.json({
-      message: "Handle has been taken already!",
+      message: "Handle Has Been Taken Already!",
     });
   } else {
-    const created_account = await User.create(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.password, 5);
+    const created_account = await User.create({
+      ...req.body,
+      password: hashedPassword,
+    });
     if (!created_account) {
       return res.json({
         message: "Error while creating user account",
@@ -37,15 +41,19 @@ exports.login_user = catch_async_err(async (req, res) => {
       message: "Account not found!",
     });
   }
-  const check_password = bcrypt.compare(req.body.password, find_user.password);
+  const check_password = await bcrypt.compare(
+    req.body.password.toString(),
+    find_user.password.toString()
+  );
   if (!check_password) {
     return res.json({
-      message: "Please enter correct password!",
+      message: "Please Enter Correct Password!",
     });
   }
   const token = await tokenize_data({ data: find_user.toObject() });
   res.cookie("token", token, { httpOnly: true }).json({
     message: "Logged In!",
+    data: find_user,
   });
 });
 
@@ -93,4 +101,3 @@ exports.get_user_by_id = catch_async_err(async (req, res) => {
     data: found_user,
   });
 });
-

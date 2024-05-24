@@ -6,10 +6,12 @@ import Main from "./pages/Main.jsx";
 import Explore from "./pages/Explore.jsx";
 import Series from "./pages/Series.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <>
+    <Toaster />
       <BrowserRouter>
     <ScrollToTop />
         <Routes>

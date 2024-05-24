@@ -4,7 +4,7 @@ import { SET_USER_INFO, UPDATE_BALANCE } from './ActionTypes';
 
 const initialState = {
   username: '',
-  email: '',
+  id: '',
   profile: '',
   walletAddress: '',
   balance: 0
@@ -16,7 +16,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         username: action.payload.username,
-        email: action.payload.email,
+        id: action.payload.id,
         profile: action.payload.profile,
         walletAddress: action.payload.walletAddress
       };

@@ -11,8 +11,11 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { connectMetamask } from "../constant";
 import Login from "./Login";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const userInfo = useSelector((state) => state.userReducer);
+  // console.log(userInfo);
   const metaMaskId = window.localStorage.getItem("token");
   const active_link = window.location.pathname;
   const navigate = useNavigate();
@@ -109,9 +112,7 @@ const Header = () => {
           </div>
           <button
             onClick={() =>
-              metaMaskId !== null || undefined
-                ? openLogin()
-                : connectMetamask()
+              metaMaskId !== null || undefined ? openLogin() : connectMetamask()
             }
           >
             {metaMaskId !== null || undefined ? "LOGIN" : "CONNECT"}
