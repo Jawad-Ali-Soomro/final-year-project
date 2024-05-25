@@ -3,11 +3,17 @@ import ReactDOM from "react-dom";
 import "../styles/Login.scss";
 import {
   BiEnvelope,
+  BiHandicap,
   BiHide,
   BiKey,
   BiLogIn,
+  BiLogoFacebook,
+  BiLogoInstagram,
+  BiLogoTwitter,
   BiPlusCircle,
+  BiSearch,
   BiShow,
+  BiUser,
 } from "react-icons/bi";
 import { FaSign, FaSignInAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -63,8 +69,8 @@ const Login = ({ onClose }) => {
         </div>
         {step == 0 ? (
           <div className="right flex col">
-            <h1>WElcome</h1>
-            <p style={{ textTransform: "uppercase" }}>
+            <h1>Welcome</h1>
+            <p>
               Please Login To Continue!
             </p>
             <div className="input-wrap flex">
@@ -95,8 +101,51 @@ const Login = ({ onClose }) => {
             <button onClick={() => login_fn()}>LOGIN</button>
           </div>
         ) : (
-          <div className="right register flex col">
-            
+          <div className="register  flex">
+            <div className="right-card flex  col">
+              <h1>welcome</h1>
+              <p>Create your account to get started!</p>
+              <div className="input-wrap flex">
+                <BiEnvelope className="icon" />
+                <input type="text" placeholder="Enter Email Address" />
+              </div>
+              <div className="input-wrap flex">
+                <BiUser className="icon" />
+                <input type="text" placeholder="Enter Username" />
+              </div>
+              <div className="input-wrap flex">
+                <BiLogoFacebook className="icon" />
+                <input type="text" placeholder="Enter Facebook Link" />
+              </div>
+             
+            </div>
+            <div className="right-card flex  col">
+            <div className="input-wrap flex">
+                <BiLogoInstagram className="icon" />
+                <input type="text" placeholder="Enter Instagram Link" />
+              </div>
+            <div className="input-wrap flex">
+                <BiLogoTwitter className="icon" />
+                <input type="text" placeholder="Enter Twitter Link" />
+              </div>
+              <div className="input-wrap flex">
+                <BiKey />
+                <input
+                  style={{ width: "240px" }}
+                  type={show_pass == true ? "text" : "password"}
+                  placeholder="Enter Password"
+                  value={password}
+                  onChange={(e) => set_password(e.target.value)}
+                />
+                {show_pass == true ? (
+                  <BiShow onClick={() => set_pass(false)} />
+                ) : (
+                  <BiHide onClick={() => set_pass(true)} />
+                )}
+              </div>
+              <button style={{border : '1px solid rgba(0,0,0,0.3)' , background:'transparent' , color : '#111'}}>Upload </button>
+              <button>Register</button>
+            </div>
           </div>
         )}
       </div>
