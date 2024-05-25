@@ -10,11 +10,23 @@ import { useNavigate } from "react-router-dom";
 import { BiHelpCircle, BiLogoDiscordAlt, BiLogoTwitter } from "react-icons/bi";
 import Spotlight from "../components/Spotlight.jsx";
 import Footer from "../components/Footer.jsx";
-import Login from "../components/Login.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
   const [main_data, set_data] = useState();
+  const [top_data , set_top_data] = useState()
+
+  const fetch_top_data = async () => {
+    try {
+      const response = await axios.get(`${baseArtUrl}/get/all`);
+      const featuredImages = response.data.data;
+      const shuffledImages = shuffleArray(featuredImages);
+      const randomFeaturedImages = shuffledImages.slice(0, 3);
+      set_top_data(randomFeaturedImages);
+    } catch (error) {
+      console.error("Error fetching featured images:", error);
+    }
+  };
 
   const fetch_data = async () => {
     try {
@@ -37,19 +49,31 @@ const Home = () => {
 
   useEffect(() => {
     fetch_data();
+    fetch_top_data()
   }, []);
 
   return (
     <div>
       <Header />
+      <Banner />
       <div className="trending flex col">
         {main_data?.map((art) => (
           <div className="card flex" key={art._id}>
-            <div className="right-content flex">
+            <div className="right-content flex" >
               <img src={art.image} alt="" />
             </div>
             <div className="left-content flex col">
-              <h1>{art.title}</h1>
+              <div className="image flex">
+              {
+                top_data?.map((card) => {
+                  return <div className="image-card flex" onClick={() => navigate(`/art/${card._id}`)}>
+                    <img src={card?.image} alt="" />
+                  </div>
+                })
+              }
+              </div>
+            <div className="main-info flex col">
+            <h1>{art.title}</h1>
               <div className="tags flex" style={{ gap: "10px" }}>
                 {art.tags.map((tag, index) => (
                   <div className="tag flex" key={index}>
@@ -84,10 +108,10 @@ const Home = () => {
               <div className="line"></div>
               <button onClick={() => navigate(`/art/${art._id}`)}>VIEW</button>
             </div>
+            </div>
           </div>
         ))}
       </div>
-      {/* <Banner /> */}
       <Featured />
       <SeriesFeatured />
       <Spotlight />
