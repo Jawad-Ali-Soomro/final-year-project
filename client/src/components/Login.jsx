@@ -10,6 +10,7 @@ import {
   BiLogoFacebook,
   BiLogoInstagram,
   BiLogoTwitter,
+  BiMenuAltLeft,
   BiPlusCircle,
   BiSearch,
   BiShow,
@@ -70,9 +71,7 @@ const Login = ({ onClose }) => {
         {step == 0 ? (
           <div className="right flex col">
             <h1>Welcome</h1>
-            <p>
-              Please Login To Continue!
-            </p>
+            <p>Please Login To Continue!</p>
             <div className="input-wrap flex">
               <BiEnvelope />
               <input
@@ -117,16 +116,19 @@ const Login = ({ onClose }) => {
                 <BiLogoFacebook className="icon" />
                 <input type="text" placeholder="Enter Facebook Link" />
               </div>
-             
             </div>
             <div className="right-card flex  col">
-            <div className="input-wrap flex">
+              <div className="input-wrap flex">
                 <BiLogoInstagram className="icon" />
                 <input type="text" placeholder="Enter Instagram Link" />
               </div>
-            <div className="input-wrap flex">
+              <div className="input-wrap flex">
                 <BiLogoTwitter className="icon" />
                 <input type="text" placeholder="Enter Twitter Link" />
+              </div>
+              <div className="input-wrap flex">
+                <BiMenuAltLeft className="icon" />
+                <input type="text" placeholder="About Yourself" />
               </div>
               <div className="input-wrap flex">
                 <BiKey />
@@ -143,7 +145,15 @@ const Login = ({ onClose }) => {
                   <BiHide onClick={() => set_pass(true)} />
                 )}
               </div>
-              <button style={{border : '1px solid rgba(0,0,0,0.3)' , background:'transparent' , color : '#111'}}>Upload </button>
+              <button
+                style={{
+                  border: "1px solid rgba(0,0,0,0.3)",
+                  background: "transparent",
+                  color: "#111",
+                }}
+              >
+                Upload{" "}
+              </button>
               <button>Register</button>
             </div>
           </div>

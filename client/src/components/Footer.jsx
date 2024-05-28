@@ -8,7 +8,7 @@ const Footer = () => {
     <div className='footer-wrap flex'>
       <div className="left flex col">
       <div className="logo flex">
-        <h1>Arthub</h1>
+        <h1>Arthub.com &copy; 2024</h1>
       </div>
         <p>artwork and news to your box</p>
         <div className="subscribe flex">
