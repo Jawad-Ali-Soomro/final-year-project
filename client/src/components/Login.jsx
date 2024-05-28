@@ -2,45 +2,21 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "../styles/Login.scss";
 import {
-  BiEnvelope,
-  BiHandicap,
-  BiHide,
-  BiKey,
+  BiArrowBack,
+  BiArrowFromRight,
+  BiArrowToRight,
+  BiLeftArrow,
   BiLogIn,
-  BiLogoFacebook,
-  BiLogoInstagram,
-  BiLogoTwitter,
-  BiMenuAltLeft,
-  BiPlusCircle,
-  BiSearch,
-  BiShow,
-  BiUser,
+  BiPlus,
+  BiRightArrow,
 } from "react-icons/bi";
-import { FaSign, FaSignInAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { baseUserUrl } from "../constant";
-import { useDispatch } from "react-redux";
-import { setUserInfo } from "../Toolkit/Actions";
-import toast from "react-hot-toast";
 
 const loginPortal = document.getElementById("loginPortal");
 
 const Login = ({ onClose }) => {
-  const [email, set_email] = useState();
-  const [password, set_password] = useState();
-  const [coming_data, set_data] = useState();
+  const [login_step, set_login_step] = useState(1);
+  const [sigunp_step, set_sigunp_step] = useState(1);
   const [step, set_step] = useState(0);
-  const login_fn = async () => {
-    const user_info = await axios.post(`${baseUserUrl}/login`, {
-      email,
-      password,
-    });
-    user_info.data?.message == "Logged In!"
-      ? toast.success(`Welcom Mr ${user_info?.data?.data?.username}`) +
-        set_data(user_info?.data?.data)
-      : toast.error(`${user_info?.data?.message}`);
-  };
   const [show_pass, set_pass] = useState(false);
   return ReactDOM.createPortal(
     <div className="login-portal flex" onClick={onClose}>
@@ -56,7 +32,7 @@ const Login = ({ onClose }) => {
             }}
             onClick={() => set_step(1)}
           >
-            <BiPlusCircle />
+            <BiPlus />
           </button>
           <button
             style={{
@@ -70,92 +46,88 @@ const Login = ({ onClose }) => {
         </div>
         {step == 0 ? (
           <div className="right flex col">
-            <h1>Welcome</h1>
-            <p>Please Login To Continue!</p>
-            <div className="input-wrap flex">
-              <BiEnvelope />
-              <input
-                type="text"
-                placeholder="Enter Email Address"
-                value={email}
-                onChange={(e) => set_email(e.target.value)}
+            <h1>access account!</h1>
+            <div className="step-sect flex">
+              <BiArrowBack
+                className="icon"
+                onClick={() =>
+                  login_step > 1
+                    ? set_login_step(login_step - 1)
+                    : set_login_step(1)
+                }
+              />
+              <div className="step flex">
+                <p>{login_step}</p>
+              </div>
+              <BiArrowBack
+                className="back icon"
+                onClick={() => set_login_step(login_step + 1)}
               />
             </div>
-            <div className="input-wrap flex">
-              <BiKey />
-              <input
-                style={{ width: "240px" }}
-                type={show_pass == true ? "text" : "password"}
-                placeholder="Enter Password"
-                value={password}
-                onChange={(e) => set_password(e.target.value)}
-              />
-              {show_pass == true ? (
-                <BiShow onClick={() => set_pass(false)} />
-              ) : (
-                <BiHide onClick={() => set_pass(true)} />
-              )}
-            </div>
-            <Link className="link">Forgot Password?</Link>
-            <button onClick={() => login_fn()}>LOGIN</button>
+            {login_step == 1 ? (
+              <div className="input-wrap flex col">
+                <p>Email Address</p>
+                <input type="text" />
+              </div>
+            ) : login_step == 2 ? (
+              <div className="input-wrap flex col">
+                <p>Password</p>
+                <input type="text" />
+              </div>
+            ) : (
+              this
+            )}
+
+            <button onClick={() => set_login_step(login_step + 1)}>
+              {login_step == 1 ? "Next" : login_step == 2 ? "Login" : this}
+            </button>
           </div>
         ) : (
-          <div className="register  flex">
-            <div className="right-card flex  col">
-              <h1>welcome</h1>
-              <p>Create your account to get started!</p>
-              <div className="input-wrap flex">
-                <BiEnvelope className="icon" />
-                <input type="text" placeholder="Enter Email Address" />
+          <div className="right  flex col">
+            <h1>create Account!</h1>
+            <div className="step-sect flex">
+              <BiArrowBack
+                className="icon"
+                onClick={() =>
+                  sigunp_step > 1
+                    ? set_sigunp_step(sigunp_step - 1)
+                    : set_sigunp_step(1)
+                }
+              />
+              <div className="step flex">
+                <p>{sigunp_step}</p>
               </div>
-              <div className="input-wrap flex">
-                <BiUser className="icon" />
-                <input type="text" placeholder="Enter Username" />
-              </div>
-              <div className="input-wrap flex">
-                <BiLogoFacebook className="icon" />
-                <input type="text" placeholder="Enter Facebook Link" />
-              </div>
+              <BiArrowBack
+                className="back icon"
+                onClick={() => set_sigunp_step(sigunp_step + 1)}
+              />
             </div>
-            <div className="right-card flex  col">
-              <div className="input-wrap flex">
-                <BiLogoInstagram className="icon" />
-                <input type="text" placeholder="Enter Instagram Link" />
+            {sigunp_step == 1 ? (
+              <div className="input-wrap flex col">
+                <p>Email Address</p>
+                <input type="text" />
               </div>
-              <div className="input-wrap flex">
-                <BiLogoTwitter className="icon" />
-                <input type="text" placeholder="Enter Twitter Link" />
+            ) : sigunp_step == 2 ? (
+              <div className="input-wrap flex col">
+                <p>Password</p>
+                <input type="text" />
               </div>
-              <div className="input-wrap flex">
-                <BiMenuAltLeft className="icon" />
-                <input type="text" placeholder="About Yourself" />
+            ) : sigunp_step == 5 ? (
+              <div className="avatar flex">
+                <input type="file" name="" id="" />
               </div>
-              <div className="input-wrap flex">
-                <BiKey />
-                <input
-                  style={{ width: "240px" }}
-                  type={show_pass == true ? "text" : "password"}
-                  placeholder="Enter Password"
-                  value={password}
-                  onChange={(e) => set_password(e.target.value)}
-                />
-                {show_pass == true ? (
-                  <BiShow onClick={() => set_pass(false)} />
-                ) : (
-                  <BiHide onClick={() => set_pass(true)} />
-                )}
-              </div>
-              <button
-                style={{
-                  border: "1px solid rgba(0,0,0,0.3)",
-                  background: "transparent",
-                  color: "#111",
-                }}
-              >
-                Upload{" "}
-              </button>
-              <button>Register</button>
-            </div>
+            ) : sigunp_step == 3 ? <div className="input-wrap flex col">
+              <p>Username</p>
+              <input type="text" />
+            </div> : sigunp_step == 4 ? <div className="input-wrap flex col">
+            <p>Handle</p>
+            <input type="text" />
+            </div> : (
+              this
+            )}
+            <button onClick={() => sigunp_step <= 5 ? set_sigunp_step(sigunp_step + 1) : this}>
+              {sigunp_step <= 4 ? "Next" : sigunp_step >=5 ? "SIGNUp" : this}
+            </button>
           </div>
         )}
       </div>

@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  backdrop-filter: blur(5px);
   .login-container {
     .toggler {
       position: absolute;
@@ -16,7 +17,7 @@
       border-radius: 5px;
       background: white;
       gap: 10px;
-      button{
+      button {
         width: 40px;
         height: 40px;
         border-radius: 5px;
@@ -26,137 +27,101 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
     background: white;
     position: relative;
     .right {
       width: 400px;
-      height: 400px;
+      height: 450px;
       gap: 20px;
-      position: relative;
-      overflow: hidden;
-      z-index: 10;
-      h1 {
-        font-weight: 900;
-        font-size: 2rem;
-        text-transform: capitalize;
-        z-index: 10;
+
+      img{
+        width: 40px;
       }
-      p {
-        font-size: 1rem;
-        z-index: 10;
+      h1{
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      .step-sect {
+        width: 400px;
+        padding: 15px 30px;
+        gap: 20px;
+        .step {
+          width: 40px;
+          height: 40px;
+          border: 1px solid rgba($color: #000000, $alpha: 0.3);
+          border-radius: 50%;
+          font-size: 1rem;
+          font-weight: 900;
+        }
+        .back {
+          transform: rotate(180deg);
+        }
+        .icon {
+          cursor: pointer;
+        }
       }
       .input-wrap {
-        width: 300px;
-        height: 40px;
-        border: 1px solid rgba($color: #000000, $alpha: 0.1);
-        overflow: hidden;
+        align-items: start;
+        gap: 5px;
         input {
-          width: 260px;
-          height: 100%;
-          padding-top: 2px;
-          border: none;
+          width: 250px;
+          height: 40px;
+          border: 1px solid rgba($color: #000000, $alpha: 0.3);
+          border-radius: 5px;
           outline: none;
+          font-size: 1rem;
           padding-left: 10px;
         }
       }
+      .avatar {
+        width: 250px;
+        height: 68px;
+        border: 1px dashed;
+        position: relative;
+        cursor: pointer;
+        input {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .avatar::after {
+        content: "Upload File";
+        position: absolute;
+      }
       button {
-        width: 150px;
+        width: 120px;
         height: 40px;
-        margin-left: 150px;
         border: none;
         background: #111;
         color: white;
-        padding-top: 5px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-left: 142px;
         cursor: pointer;
-        z-index: 10;
       }
       button:hover {
-        background: transparent;
         border: 1px solid;
         color: #111;
+        background: transparent;
       }
-      .link {
-        color: rgba($color: #000000, $alpha: 0.7);
-        text-decoration: none;
-        width: 200px;
-        text-align: right;
-        margin-left: 100px;
-        z-index: 10;
-      }
-    }
-    .register {
-      padding: 20px 50px;
-      gap: 50px;
-      position: relative;
-      overflow: hidden;
-      .right-card {
-        padding: 55px 0px;
-        align-items: start;
-        gap: 10px;
-        justify-content: center;
-        h1{
-          text-transform: capitalize;
-          font-weight: 900;
-          z-index: 10;
-        }
-        p{
-          text-transform: capitalize;
-          font-size: .9rem;
-          margin-bottom: 10px;
-          z-index: 10;
-        }
-        .input-wrap {
-          width: 300px;
-          height: 40px;
-          border: 1px solid rgba($color: #000000, $alpha: 0.3);
-          overflow: hidden;
-          input {
-            width: 260px;
-            height: 100%;
-            border: none;
-            outline: none;
-            padding-left: 10px;
-            padding-top: 2px;
-          }
-        }
-        button {
-          width: 180px;
-          height: 40px;
-          background: black;
-          border: none;
-          color: white;
-          text-transform: uppercase;
-          padding-top: 2px;
-          cursor: pointer;
-          margin-left: 120px;
-          z-index: 10;
-        }
+      .back-opt {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        background: #111;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
       }
     }
-    .right::after , .register::after {
-      content: '';
-      width: 300px;
-      height: 300px;
-      background: #eee;
-      border-radius: 150px;
-      position: absolute;
-      top: -150px;
-      left: -150px;
-      z-index: 0;
-    }
-    .right::before , .register::before {
-      content: '';
-      width: 300px;
-      height: 300px;
-      background: #eee;
-      border-radius: 150px;
-      position: absolute;
-      bottom: -150px;
-      right: -150px;
-      z-index: 0;
-    }
+   
   }
 }
