@@ -59,8 +59,11 @@ const Login = ({ onClose }) => {
             <BiLogIn />
           </button>
         </div>
-        <div className="left flex col">
-          <img src={randomImage} alt="" />
+        <div className="left flex col" style={{background : `url(${randomImage})`}}>
+          <div className="content flex col">
+            <h1>{step == 0 ? "Welcome!" : "Hey There!"}</h1>
+            <p>{step == 0 ? "We're Thrilled To Have You Here!" : "Don't Miss The Art Signup Now!"}</p>
+          </div>
         </div>
         {step == 0 ? (
           <div data-content="Login" className="right flex col">

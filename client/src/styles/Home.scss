@@ -146,4 +146,35 @@
     }
   }
 }
+.tech-stack {
+  align-items: start;
+  gap: 50px;
+  h1{
+    font-size: 3rem;
+    font-weight: 300;
+  }
+  .wrap {
+    width: 100%;
+    justify-content: space-between;
+    img{
+      width: 200px;
+      height: 80px;
+    }
+    .wrapper {
+      justify-content: center;
+      align-items: end;
+      position: relative;
+      p{
+        font-size: 5rem;
+        line-height: 30px;
+        position: absolute;
+        left: 160px;
+
+      }
+      img{
+        margin-right: 50px;
+      }
+    }
+  }
+}
 
