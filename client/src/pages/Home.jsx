@@ -119,7 +119,6 @@ const Home = () => {
         ))}
       </div>
       <Featured />
-      {/* <SeriesFeatured /> */}
 
       <Footer />
     </div>
