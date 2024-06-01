@@ -4,10 +4,6 @@ body {
   padding-right: 100px;
 }
 
-div , button , img {
-  border-radius: 5px;
-}
-
 button {
   padding-top: 2px;
 }

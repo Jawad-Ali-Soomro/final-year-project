@@ -1,10 +1,14 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "../styles/Login.scss";
 import {
   BiArrowBack,
+  BiAt,
+  BiEnvelope,
+  BiKey,
   BiLogIn,
   BiPlus,
+  BiUser,
 } from "react-icons/bi";
 
 const loginPortal = document.getElementById("loginPortal");
@@ -59,114 +63,107 @@ const Login = ({ onClose }) => {
             <BiLogIn />
           </button>
         </div>
-        <div className="left flex col" style={{background : `url(${randomImage})`}}>
+        <div
+          className="left flex col"
+          style={{ background: `url(${randomImage})` }}
+        >
           <div className="content flex col">
-            <h1>{step == 0 ? "Welcome!" : "Hey There!"}</h1>
-            <p>{step == 0 ? "We're Thrilled To Have You Here!" : "Don't Miss The Art Signup Now!"}</p>
+            <h1>{step == 0 ? "Greeting!" : "Hello!"}</h1>
+            <p>
+              {step == 0
+                ? "We're Excited to Welcome You!!"
+                : "Unlock Your Creativity – Join Now!"}
+            </p>
           </div>
         </div>
         {step == 0 ? (
           <div data-content="Login" className="right flex col">
             <h1>Welcome</h1>
-            <p>We're Thrilled To Have You Here!</p>
-            <div className="step-sect flex">
-              <BiArrowBack
-                className="icon"
-                onClick={() =>
-                  login_step > 1
-                    ? set_login_step(login_step - 1)
-                    : set_login_step(1)
-                }
-              />
-              <div className="step flex">
-                <p>{login_step}</p>
+            <p>Fill The Credentials To Get You In!</p>
+            <div className="main-input flex col">
+              <div className="input-wrap flex">
+                <BiEnvelope />
+                <input type="text" placeholder="Email" />
               </div>
-              <BiArrowBack
-                className="back icon"
-                onClick={() =>
-                  login_step <= 1
-                    ? set_login_step(login_step + 1)
-                    : set_login_step(2)
-                }
-              />
+              <div className="input-wrap flex">
+                <BiKey />
+                <input type="text" placeholder="Password" />
+              </div>
             </div>
 
-            {login_step == 1 ? (
-              <div className="input-wrap flex col">
-                <p>Email Address</p>
-                <input type="text" />
-              </div>
-            ) : login_step == 2 ? (
-              <div className="input-wrap flex col">
-                <p>Password</p>
-                <input type="text" />
-              </div>
-            ) : (
-              this
-            )}
-
-            <button onClick={() => set_login_step(login_step + 1)}>
-              {login_step == 1 ? "Next" : login_step == 2 ? "Login" : this}
-            </button>
+            <button>Login</button>
           </div>
         ) : (
           <div data-content="signup" className="right  flex col">
-            <h1>let's start!</h1>
-            <p>Come & Exlpore The World Of Art!</p>
+            <h1>Let's Start!</h1>
+            <p style={{textTransform:'capitalize'}}>Follow All Steps to create your account!</p>
             <div className="step-sect flex">
-              <BiArrowBack
-                className="icon"
-                onClick={() =>
-                  sigunp_step > 1
-                    ? set_sigunp_step(sigunp_step - 1)
-                    : set_sigunp_step(1)
-                }
-              />
-              <div className="step flex">
-                <p>{sigunp_step}</p>
-              </div>
-              <BiArrowBack
-                className="back icon"
-                onClick={() =>
-                  sigunp_step <= 4
-                    ? set_sigunp_step(sigunp_step + 1)
-                    : set_sigunp_step(5)
-                }
-              />
+              <div
+                className="step flex"
+                onClick={() => set_sigunp_step(1)}
+                style={{
+                  background: `${sigunp_step >= 1 ? "#111" : ""}`,
+                  color: `${sigunp_step >= 1 ? "white" : "black"}`,
+                }}
+              ></div>
+              <div className="line"></div>
+              <div
+                className="step flex"
+                onClick={() => set_sigunp_step(2)}
+                style={{
+                  background: `${sigunp_step >= 2 ? "#111" : ""}`,
+                  color: `${sigunp_step >= 2 ? "white" : "black"}`,
+                }}
+              ></div>
+              <div className="line"></div>
+              <div
+                className="step flex"
+                onClick={() => set_sigunp_step(3)}
+                style={{
+                  background: `${sigunp_step >= 3 ? "#111" : ""}`,
+                  color: `${sigunp_step >= 3 ? "white" : "black"}`,
+                }}
+              ></div>
             </div>
             {sigunp_step == 1 ? (
-              <div className="input-wrap flex col">
-                <p>Email Address</p>
-                <input type="text" />
+              <div className="main-input flex col">
+                <div className="input-wrap flex">
+                  <BiEnvelope />
+                  <input type="text" placeholder="Email" />
+                </div>
+                <div className="input-wrap flex">
+                  <BiKey />
+                  <input type="text" placeholder="Password" />
+                </div>
               </div>
             ) : sigunp_step == 2 ? (
-              <div className="input-wrap flex col">
-                <p>Password</p>
-                <input type="text" />
-              </div>
-            ) : sigunp_step == 5 ? (
-              <div className="avatar flex">
-                <input type="file" name="" id="" />
+              <div className="main-input flex col">
+                <div className="input-wrap flex">
+                  <BiUser />
+                  <input type="text" placeholder="Username" />
+                </div>
+                <div className="input-wrap flex">
+                  <BiAt />
+                  <input type="text" placeholder="Handle" />
+                </div>
               </div>
             ) : sigunp_step == 3 ? (
-              <div className="input-wrap flex col">
-                <p>Username</p>
-                <input type="text" />
-              </div>
-            ) : sigunp_step == 4 ? (
-              <div className="input-wrap flex col">
-                <p>Handle</p>
-                <input type="text" />
+              <div className="main-input flex col">
+                <div className="input-wrap" style={{border:'none'}}>
+                  <div className="avatar flex">
+                    <input type="file" name="" id="" />
+                  </div>
+                </div>
               </div>
             ) : (
               this
             )}
             <button
               onClick={() =>
-                sigunp_step <= 5 ? set_sigunp_step(sigunp_step + 1) : this
+                sigunp_step <= 4 ? set_sigunp_step(sigunp_step + 1) : this
               }
             >
-              {sigunp_step <= 4 ? "Next" : sigunp_step >= 5 ? "SIGNUp" : this}
+            {sigunp_step <3 ? "Next" : "signup"}
             </button>
           </div>
         )}
