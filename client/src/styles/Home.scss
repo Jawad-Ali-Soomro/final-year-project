@@ -23,7 +23,7 @@
       align-items: start;
       border-radius: 0;
       .image {
-        width: 470px;
+        width: 450px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 25px;
@@ -50,9 +50,9 @@
       .main-info {
         position: relative;
         align-items: start;
-        gap: 10px;
+        gap: 20px;
         border: 1px solid rgba($color: #000000, $alpha: 0.3);
-        padding: 30px;
+        padding: 20px;
         h1 {
           text-transform: capitalize;
           font-size: 1.5rem;
@@ -127,11 +127,11 @@
       }
       .main-info::after {
         content: "";
-        width: 80px;
+        width: 100px;
         height: 1px;
         background: rgba($color: #000000, $alpha: 0.3);
         position: absolute;
-        left: -100px;
+        left: -120px;
       }
     }
     .right-content {
@@ -147,33 +147,4 @@
     }
   }
 }
-.tech-stack {
-  align-items: start;
-  gap: 50px;
-  h1 {
-    font-size: 3rem;
-    font-weight: 300;
-  }
-  .wrap {
-    width: 100%;
-    justify-content: space-between;
-    img {
-      width: 200px;
-      height: 80px;
-    }
-    .wrapper {
-      justify-content: center;
-      align-items: end;
-      position: relative;
-      p {
-        font-size: 5rem;
-        line-height: 30px;
-        position: absolute;
-        left: 160px;
-      }
-      img {
-        margin-right: 50px;
-      }
-    }
-  }
-}
+

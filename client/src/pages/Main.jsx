@@ -16,8 +16,16 @@ const Main = () => {
       .get(`${baseArtUrl}/get/art/${id}`)
       .then((res) => set_data(res.data.data));
   };
+  const fetch_more = async () => {
+    await axios
+      .get(`${baseUserUrl}/get/${main_data?.owner?._id}`)
+      .then((res) => {
+        set_more(res.data.data.art.splice(0, 4));
+      });
+  };
   useEffect(() => {
     fetch_data();
+    fetch_more();
   });
   return (
     <div>
@@ -97,6 +105,33 @@ const Main = () => {
                       ({hours}:{minutes})
                     </span>
                   </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="more-arts flex col">
+        <h1>
+          More By {main_data?.owner?.username} 
+          <button>Profile</button>
+        </h1>
+        <div className="wrapper flex">
+          {more_data?.map((card_item) => {
+            return (
+              <div className="card flex col">
+                <img src={card_item?.image} alt="" />
+                <div className="info flex col">
+                  <h3>{card_item?.title?.substring(0, 22)}...</h3>
+                  <div className="owner flex">
+                    <img src={main_data?.owner?.avatar} alt="" />
+                    <p>{main_data?.owner?.username}</p>
+                  </div>
+                  <div className="line"></div>
+                  <div className="price flex col">
+                    <p>Price</p>
+                    <h3>{card_item?.price} ≈ <span>${Math.round(card_item?.price * ethToUsd)}</span></h3>
+                  </div>
                 </div>
               </div>
             );

@@ -20,7 +20,6 @@
 
     .tags {
       gap: 10px;
-      padding-top: 5px;
       .tag {
         padding: 10px 30px;
         border: 1px solid rgba($color: #000000, $alpha: 0.3);
@@ -101,13 +100,13 @@
   .description {
     align-items: start;
     gap: 20px;
-    h1{
+    h1 {
       font-size: 1.5rem;
       color: rgba($color: #000000, $alpha: 0.7);
       text-transform: uppercase;
       font-weight: 400;
     }
-    p{
+    p {
       max-width: 500px;
       text-align: justify;
       font-weight: 300;
@@ -118,7 +117,7 @@
     align-items: start;
     gap: 20px;
     width: 400px;
-    h1{
+    h1 {
       font-size: 1.5rem;
       text-transform: uppercase;
       font-weight: 400;
@@ -127,25 +126,103 @@
     }
     .owner-card {
       gap: 20px;
-      img{
+      img {
         width: 50px;
         height: 50px;
         border-radius: 50%;
       }
       .info {
         position: relative;
-        h2{
+        h2 {
           text-transform: capitalize;
           line-height: 20px;
         }
-        p{
+        p {
           text-transform: capitalize;
           font-weight: 400;
-          span{
-            font-size: .6rem;
+          span {
+            font-size: 0.6rem;
           }
         }
       }
+    }
+  }
+}
+
+.more-arts {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  align-items: start;
+  h1 {
+    text-transform: capitalize;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+    button {
+      width: 120px;
+      height: 40px;
+      border: 1px solid rgba($color: #000000, $alpha: .3);
+      color: #111;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+  .wrapper {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 80px;
+    gap: 20px;
+    .card {
+      gap: 20px;
+      border: 1px solid transparent;
+      padding-bottom: 20px;
+      img {
+        width: 270px;
+        height: 250px;
+        cursor: pointer;
+      }
+      .info {
+        width: 240px;
+        align-items: start;
+        gap: 20px;
+        h3 {
+          font-weight: 300;
+        }
+        .line {
+          width: 240px;
+          height: 1px;
+          background: rgba($color: #000000, $alpha: 0.3);
+        }
+        .owner {
+          gap: 10px;
+          img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+          }
+          p{
+            text-transform: capitalize;
+          }
+        }
+        .price {
+          align-items: start;
+          p{
+            font-size: .8rem;
+            text-transform: uppercase;
+          }
+          h3{
+            font-weight: 600;
+            span {
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+    .card:hover {
+      border: 1px solid rgba($color: #000000, $alpha: .3);
     }
   }
 }

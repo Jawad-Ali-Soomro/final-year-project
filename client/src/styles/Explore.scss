@@ -7,13 +7,12 @@
     border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
     position: relative;
     h1 {
-      font-size: 4rem;
-      font-weight: 300;
+      font-size: 5rem;
+      font-weight: 900;
       background-image: linear-gradient(to right, #111, #555);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      font-family: "Josefin Sans";
+      text-transform: capitalize;
     }
     button {
       width: 250px;
