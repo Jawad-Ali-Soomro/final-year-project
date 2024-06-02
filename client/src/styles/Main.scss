@@ -167,6 +167,10 @@
       color: #111;
       background: transparent;
       cursor: pointer;
+      font-size: .7rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
   }
   .wrapper {
@@ -180,7 +184,7 @@
       padding-bottom: 20px;
       img {
         width: 270px;
-        height: 250px;
+        height: 270px;
         cursor: pointer;
       }
       .info {

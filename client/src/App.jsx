@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home.jsx";
@@ -6,16 +6,26 @@ import Main from "./pages/Main.jsx";
 import Explore from "./pages/Explore.jsx";
 import Series from "./pages/Series.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from "react-hot-toast";
+import Loader from "./components/Loader.jsx";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setInterval(() => {
+      setIsLoading(false)
+    } , 4000 )
+  })
   return (
     <>
-    <Toaster />
+      <Toaster />
       <BrowserRouter>
-    <ScrollToTop />
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={isLoading == true ? <Loader /> : <Home />}
+          ></Route>
           <Route path="/art/:id" element={<Main />}></Route>
           <Route path="/explore" element={<Explore />}></Route>
           <Route path="/explore/series" element={<Series />}></Route>
