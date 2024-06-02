@@ -95,15 +95,17 @@
 .bottom {
   justify-content: space-between;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   position: relative;
   align-items: start;
   .description {
     align-items: start;
-    gap: 10px;
+    gap: 20px;
     h1{
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: rgba($color: #000000, $alpha: 0.7);
+      text-transform: uppercase;
+      font-weight: 400;
     }
     p{
       max-width: 500px;
@@ -117,8 +119,9 @@
     gap: 20px;
     width: 400px;
     h1{
-      font-size: 2rem;
-      text-transform: capitalize;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 400;
       max-width: 600px;
       color: rgba($color: #000000, $alpha: 0.7);
     }

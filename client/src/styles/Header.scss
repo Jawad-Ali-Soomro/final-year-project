@@ -3,11 +3,12 @@
     height: 12vh;
     top: 0;
     width: calc(100% - 200px);
-    position: absolute;
+    position: fixed;
     background: white;
     top: 0;
     z-index: 1000;
     border-radius: 0;
+    transition: transform 0.3s ease-in-out;
     .left-content  {
         gap: 50px;
         .logo {
@@ -122,3 +123,11 @@
         }
     }
 }
+
+.header--hidden {
+    transform: translateY(-100%);
+  }
+  
+  .header--visible {
+    transform: translateY(0);
+  }

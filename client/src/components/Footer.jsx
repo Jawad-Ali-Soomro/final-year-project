@@ -1,43 +1,31 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter, BiLogoYoutube } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 import '../styles/Footer.scss'
-import { BiLogoDiscordAlt, BiLogoFacebook, BiLogoInstagram, BiLogoTwitter } from 'react-icons/bi'
 
 const Footer = () => {
   return (
     <div className='footer-wrap flex'>
-      <div className="left flex col">
-      <div className="logo flex">
-        <h1>Arthub.com &copy; 2024</h1>
+      <div className="left">
+        <h2>arthub.art &reg; 2024</h2>
       </div>
-        <p>artwork and news to your box</p>
-        <div className="subscribe flex">
-            <input type="text" />
-            <button>SUBSCRIBE</button>
-        </div>
+      <div className="newsletter flex">
+        <input type="text" placeholder='Enter Email Address' />
+        <button>Subscribe</button>
       </div>
-      <div className="right flex col">
-        <h2>COMMUNITY</h2>
-        <ul className="flex col">
-            <li>Help Center</li>
-            <li>Community Guidelines</li>
-            <li>terms of service</li>
-        </ul>
-        <ul className="flex">
-            <Link className='link'><BiLogoDiscordAlt /></Link>
-            <Link className='link'><BiLogoInstagram /></Link>
-            <Link className='link'><BiLogoFacebook /></Link>
-            <Link className='link'><BiLogoTwitter /></Link>
-        </ul>
-      </div>
-      <div className="right flex col">
-        <h2>FEATURED</h2>
-        <ul className="flex col" style={{gap: '10px'}}>
-            <li>Featured Art</li>
-            <li> Featured Series</li>
-            <li>Top Artists</li>
-            <li>Join As An Artist</li>
-        </ul>
+      <div className="right flex">
+        <Link className='link'>
+            <BiLogoFacebook />
+        </Link>
+        <Link className='link'>
+            <BiLogoInstagram />
+        </Link>
+        <Link className='link'>
+            <BiLogoTwitter />
+        </Link>
+        <Link className='link'>
+            <BiLogoYoutube />
+        </Link>
       </div>
     </div>
   )

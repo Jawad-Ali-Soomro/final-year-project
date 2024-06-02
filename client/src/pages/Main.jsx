@@ -9,13 +9,13 @@ import Footer from "../components/Footer";
 const Main = () => {
   const [main_data, set_data] = useState();
   const [more_data, set_more] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
   const fetch_data = async () => {
     await axios
       .get(`${baseArtUrl}/get/art/${id}`)
       .then((res) => set_data(res.data.data));
-  }
+  };
   useEffect(() => {
     fetch_data();
   });
@@ -103,7 +103,6 @@ const Main = () => {
           })}
         </div>
       </div>
-     
       <Footer />
     </div>
   );

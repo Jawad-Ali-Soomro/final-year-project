@@ -35,7 +35,7 @@ const Spotlight = () => {
 
   return (
     <div className="featured flex col">
-      <h1>SPOTLIGHT : BOTTO</h1>
+      <h1>Artist Spotlight : Botto <button>See all</button></h1>
       <p style={{fontSize:'.8rem'}}>Through his animations, Botto explores the impact of contemporary culture on our everyday lives, offering a unique and fresh perspective on the world around us.</p>
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
@@ -73,10 +73,7 @@ const Spotlight = () => {
                   <span>${Math.round(ethToUsd * card_item?.price)}</span>
                 </h2>
               </div>
-              <div className="line"></div>
-              <button onClick={() => navigate(`/art/${card_item?._id}`)}>
-                BUY
-              </button>
+             
             </div>
           );
         })}

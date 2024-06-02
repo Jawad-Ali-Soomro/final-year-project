@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Header.scss";
 import {
   BiLogoDiscordAlt,
@@ -14,24 +14,57 @@ import Login from "./Login";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const userInfo = useSelector((state) => state.userReducer);
-  // console.log(userInfo);
   const metaMaskId = window.localStorage.getItem("token");
   const active_link = window.location.pathname;
   const navigate = useNavigate();
   const [show_menu, set_menu] = useState(false);
   const [show_login, set_login] = useState(false);
-
   const openLogin = () => {
     set_login(true);
   };
-
   const closeLogin = () => {
     set_login(false);
   };
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+
+      if (window.scrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(window.scrollY);
+    };
+
+    const handleStopScroll = () => {
+      setIsScrolling(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', () => {
+      setIsScrolling(true);
+      clearTimeout(handleStopScroll);
+      setTimeout(handleStopScroll, 150); // Adjust the timeout as needed
+    });
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleStopScroll);
+    };
+  }, [lastScrollY]);
+
 
   return (
-    <div className="header-wrap flex">
+    <div className={`header-wrap flex ${isVisible ? 'header--visible' : 'header--hidden'}`}>
       <div className="left-content flex">
         <div className="logo" onClick={() => navigate("/")}>
           <img src="../public/logo.svg" alt="" />

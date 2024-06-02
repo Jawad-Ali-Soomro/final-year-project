@@ -1,6 +1,6 @@
 .trending {
   width: calc(100%);
-  height: 88vh;
+  height: 100vh;
   align-items: start;
   gap: 10px;
   h1 {
@@ -23,7 +23,7 @@
       align-items: start;
       border-radius: 0;
       .image {
-        width: 450px;
+        width: 470px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 25px;
@@ -52,7 +52,7 @@
         align-items: start;
         gap: 10px;
         border: 1px solid rgba($color: #000000, $alpha: 0.3);
-        padding: 20px;
+        padding: 30px;
         h1 {
           text-transform: capitalize;
           font-size: 1.5rem;
@@ -127,11 +127,11 @@
       }
       .main-info::after {
         content: "";
-        width: 120px;
+        width: 80px;
         height: 1px;
         background: rgba($color: #000000, $alpha: 0.3);
         position: absolute;
-        left: -130px;
+        left: -100px;
       }
     }
     .right-content {

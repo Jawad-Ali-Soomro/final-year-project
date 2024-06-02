@@ -18,7 +18,7 @@ const SeriesFeatured = () => {
   });
   return (
     <div className="featured flex col">
-      <h1>FEATURED SERIES</h1>
+      <h1>Series <button>See All</button></h1>
       <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
