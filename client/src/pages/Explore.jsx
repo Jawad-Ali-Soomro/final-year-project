@@ -22,7 +22,7 @@ const Explore = () => {
     <div className="explore-main featured flex col">
       <Header />
       <div className="top flex">
-        <h1>Explore</h1>
+        <h1 className="flex">Explore <span>Discover & Collect Crypto Art.</span></h1>
         <button className="flex">
           Filters
           <img src="../public/filter.svg" alt="" />

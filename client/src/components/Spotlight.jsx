@@ -11,7 +11,7 @@ const Spotlight = () => {
   const fetch_data = async () => {
     try {
       const response = await axios.get(
-        `${baseUserUrl}/get/664b6bc32cd61128324472be`
+        `${baseUserUrl}/get/665ee1083d4db96d5541f387`
       );
       const featuredImages = response.data.data.art;
       const shuffledImages = shuffleArray(featuredImages);

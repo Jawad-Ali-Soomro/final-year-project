@@ -9,10 +9,17 @@
     h1 {
       font-size: 5rem;
       font-weight: 900;
+      align-items: start;
       background-image: linear-gradient(to right, #111, #555);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: capitalize;
+      flex-direction: column;
+      gap: 10px;
+      span {
+        font-size: 2rem;
+        font-weight: 600;
+      }
     }
     button {
       width: 250px;
