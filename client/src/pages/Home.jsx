@@ -63,7 +63,7 @@ const Home = () => {
               <img src={art.image} alt="" />
             </div>
             <div className="left-content flex col">
-              <div className="image flex">
+              {/* <div className="image flex">
                 {top_data?.map((card) => {
                   return (
                     <div
@@ -74,7 +74,7 @@ const Home = () => {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
               <div className="main-info flex col">
                 <h1>{art.title}</h1>
                 <div className="tags flex" style={{ gap: "10px" }}>
