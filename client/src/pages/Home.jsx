@@ -92,9 +92,11 @@ const Home = () => {
                       <h2>{art.owner.username}</h2>
                     </div>
                   </div>
-                  {art.series.map((series, index) => (
+                  {art.series?.splice(0,1)?.map((series, index) => (
                     <div className="series inherit flex" key={index}>
+                      <div className="img-sect flex">
                       <img src={series.image} alt="" />
+                      </div>
                       <div className="info flex col">
                         <p>SERIES</p>
                         <h2>{series?.title?.substring(0, 12)}</h2>

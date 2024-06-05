@@ -120,7 +120,9 @@ const Main = () => {
           {more_data?.map((card_item) => {
             return (
               <div className="card flex col">
+                <div className="img-sect flex">
                 <img src={card_item?.image} alt="" />
+                </div>
                 <div className="info flex col">
                   <h3>{card_item?.title?.substring(0, 22)}...</h3>
                   <div className="owner flex">

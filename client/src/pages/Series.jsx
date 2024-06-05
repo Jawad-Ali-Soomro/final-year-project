@@ -25,7 +25,7 @@ const Series = () => {
     <div className="explore-main featured flex col">
       <Header />
       <div className="top flex">
-        <h1>explore series</h1>
+        <h1 className="flex">series <span>Discover Series & Collect Rare Items</span></h1>
         <button className="flex">
           Filters
           <img src="../public/filter.svg" alt="" />

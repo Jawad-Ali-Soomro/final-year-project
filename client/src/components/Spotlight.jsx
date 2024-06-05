@@ -32,7 +32,6 @@ const Spotlight = () => {
   useEffect(() => {
     fetch_data();
   }, []);
-
   return (
     <div className="featured flex col">
       <h1>Artist Spotlight : Botto <button>See all</button></h1>
@@ -53,19 +52,6 @@ const Spotlight = () => {
                 >
                   {card_item?.title}
                 </h2>
-              <div
-                className="profile flex"
-                style={{
-                  position: "absolute",
-                  background: "whites",
-                  width: "30px",
-                  height: "30px",
-                  top : '30px',
-                  right: '30px',
-                  border : 'none'
-                }}
-              >
-              </div>
               <div className="price flex col">
                 <p>PRICE</p>
                 <h2>
