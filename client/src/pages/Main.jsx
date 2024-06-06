@@ -5,10 +5,12 @@ import Header from "../components/Header";
 import axios from "axios";
 import { baseArtUrl, baseUserUrl, ethToUsd } from "../constant";
 import Footer from "../components/Footer";
+import { ColorRing } from "react-loader-spinner";
 
 const Main = () => {
   const [main_data, set_data] = useState();
   const [more_data, set_more] = useState();
+  const [show_desc , set_desc] = useState(false)
   const navigate = useNavigate();
   const { id } = useParams();
   const fetch_data = async () => {
@@ -75,14 +77,22 @@ const Main = () => {
             <button>OFFER</button>
           </div>
         </div>
-        <div className="left-image">
-          <img src={main_data?.image} alt="" />
+        <div className="left-image flex">
+          {
+            main_data == undefined ? <ColorRing colors={["black"]} width={200} height={200} /> : <img src={main_data?.image} alt="" />
+          }
         </div>
       </div>
       <div className="bottom flex">
         <div className="description flex col">
           <h1>Description</h1>
-          <p>{main_data?.description}</p>
+          <div className="desc flex col">
+            {
+              show_desc == false ? 
+              <p>{main_data?.description.substring(0,120)}...</p> : <p>{main_data?.description}</p>
+            }
+            <button onClick={() => set_desc(!show_desc)}>{show_desc == true ? "Show Less" : "Show More"}</button>
+          </div>
         </div>
         <div className="right-owner flex col">
           <h1>History</h1>
@@ -117,11 +127,12 @@ const Main = () => {
           <button>Profile</button>
         </h1>
         <div className="wrapper flex">
-          {more_data?.map((card_item) => {
+         {
+          more_data == undefined ? <ColorRing width={200} height={200} colors={["black"]} /> :  more_data?.map((card_item) => {
             return (
               <div className="card flex col">
                 <div className="img-sect flex">
-                <img src={card_item?.image} alt="" />
+                <img src={card_item?.image} alt="" onClick={() => navigate(`/art/${card_item._id}`) + window.location.reload()} />
                 </div>
                 <div className="info flex col">
                   <h3>{card_item?.title?.substring(0, 22)}...</h3>
@@ -137,7 +148,8 @@ const Main = () => {
                 </div>
               </div>
             );
-          })}
+          })
+         }
         </div>
       </div>
       <Footer />

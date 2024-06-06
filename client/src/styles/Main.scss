@@ -3,6 +3,8 @@
   height: 88vh;
   justify-content: space-between;
   .left-image {
+    width: 450px;
+    height: 450px;
     img {
       width: 450px;
       height: 450px;
@@ -99,30 +101,53 @@
   align-items: start;
   .description {
     align-items: start;
-    gap: 20px;
+    gap: 30px;
     h1 {
-      font-size: 1.5rem;
-      color: rgba($color: #000000, $alpha: 0.7);
+      font-size: 2rem;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 900;
     }
-    p {
-      max-width: 500px;
-      text-align: justify;
-      font-weight: 300;
+    .desc {
+      width: 500px;
+      p {
+        max-width: 500px;
+        text-align: justify;
+        font-weight: 300;
+        transition: .3s;
+      }
+      button {
+        width: 150px;
+        margin-top: 20px;
+        height: 40px;
+        border: 1px solid rgba($color: #000000, $alpha: .3);
+        background: #111 !important;
+        position: relative;
+        z-index: 1;
+        color: white;
+        cursor: pointer;
+      }
+      button::after {
+        content: '';
+        width: 500px;
+        height: 1px;
+        background: rgba($color: #000000, $alpha: .3);
+        position: absolute;
+        left: -175px;
+        top: 50%;
+        z-index: -1;
+      }
     }
   }
   .right-owner {
     justify-content: start;
     align-items: start;
-    gap: 20px;
+    gap: 30px;
     width: 400px;
     h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 900;
       max-width: 600px;
-      color: rgba($color: #000000, $alpha: 0.7);
     }
     .owner-card {
       gap: 20px;
@@ -168,16 +193,16 @@
       background: transparent;
       cursor: pointer;
       font-size: .7rem;
-      font-weight: 400;
+      font-weight: 600;
       letter-spacing: 1px;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
   .wrapper {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 80px;
-    gap: 20px;
+    gap: 50px;
     .card {
       gap: 20px;
       border: 1px solid transparent;

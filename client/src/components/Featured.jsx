@@ -4,6 +4,7 @@ import axios from "axios";
 import { baseArtUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
 import { BiUserPlus } from "react-icons/bi";
+import { ColorRing, LineWave } from "react-loader-spinner";
 
 const Featured = () => {
   const navigate = useNavigate();
@@ -36,7 +37,8 @@ const Featured = () => {
   return (
     <div className="featured flex col">
       <h1>Featured Art <button>see all</button></h1>
-      <div className="featured-card flex">
+      {
+        main_data == undefined ? <ColorRing colors={["black"]} width={200} height={200} color="black" /> : <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col" key={card_item._id}>
@@ -72,6 +74,7 @@ const Featured = () => {
           );
         })}
       </div>
+      }
     </div>
   );
 };

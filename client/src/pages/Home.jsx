@@ -7,9 +7,8 @@ import { baseArtUrl, ethToUsd } from "../constant.js";
 import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
-import { BiHelpCircle, BiLogoDiscordAlt, BiLogoTwitter } from "react-icons/bi";
-import Spotlight from "../components/Spotlight.jsx";
 import Footer from "../components/Footer.jsx";
+import { Circles, CirclesWithBar, ColorRing, LineWave , MutatingDots  } from "react-loader-spinner";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -56,73 +55,62 @@ const Home = () => {
     <div>
       <Header />
       <Banner />
-      <div className="trending flex col">
-        {main_data?.map((art) => (
-          <div className="card flex" key={art._id}>
-            <div className="right-content flex">
-              <img src={art.image} alt="" />
-            </div>
-            <div className="left-content flex col">
-              {/* <div className="image flex">
-                {top_data?.map((card) => {
-                  return (
-                    <div
-                      className="image-card flex"
-                      onClick={() => navigate(`/art/${card._id}`)}
-                    >
-                      <img src={card?.image} alt="" />
-                    </div>
-                  );
-                })}
-              </div> */}
-              <div className="main-info flex col">
-                <h1>{art.title}</h1>
-                <div className="tags flex" style={{ gap: "10px" }}>
-                  {art.tags.map((tag, index) => (
-                    <div className="tag flex" key={index}>
-                      <p>{tag}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="profile-series flex">
-                  <div className="profile inherit flex">
-                    <img src={art.owner.avatar} alt="" />
-                    <div className="info flex col">
-                      <p>ARTIST</p>
-                      <h2>{art.owner.username}</h2>
-                    </div>
+      <div className="trending flex">
+        {
+          main_data == undefined ? <ColorRing colors={["black"]} width={400} height={400} color="black" /> : main_data?.map((art) => (
+            <div className="card flex" key={art._id}>
+              <div className="right-content flex">
+                <img src={art.image} alt="" />
+              </div>
+              <div className="left-content flex col">
+                <div className="main-info flex col">
+                  <h1>{art.title}</h1>
+                  <div className="tags flex" style={{ gap: "10px" }}>
+                    {art.tags.map((tag, index) => (
+                      <div className="tag flex" key={index}>
+                        <p>{tag}</p>
+                      </div>
+                    ))}
                   </div>
-                  {art.series?.splice(0,1)?.map((series, index) => (
-                    <div className="series inherit flex" key={index}>
-                      <div className="img-sect flex">
-                      <img src={series.image} alt="" />
-                      </div>
+                  <div className="profile-series flex">
+                    <div className="profile inherit flex">
+                      <img src={art.owner.avatar} alt="" />
                       <div className="info flex col">
-                        <p>SERIES</p>
-                        <h2>{series?.title?.substring(0, 12)}</h2>
+                        <p>ARTIST</p>
+                        <h2>{art.owner.username}</h2>
                       </div>
                     </div>
-                  ))}
+                    {art.series?.splice(0,1)?.map((series, index) => (
+                      <div className="series inherit flex" key={index}>
+                        <div className="img-sect flex">
+                        <img src={series.image} alt="" />
+                        </div>
+                        <div className="info flex col">
+                          <p>SERIES</p>
+                          <h2>{series?.title?.substring(0, 12)}</h2>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="price flex col">
+                    <p>PRICE</p>
+                    <h2>
+                      {art.price} ≈{" "}
+                      <span>${Math.round(ethToUsd * art.price)}</span>
+                    </h2>
+                  </div>
+                  <div className="line"></div>
+                  <button onClick={() => navigate(`/art/${art._id}`)}>
+                    VIEW
+                  </button>
                 </div>
-                <div className="price flex col">
-                  <p>PRICE</p>
-                  <h2>
-                    {art.price} ≈{" "}
-                    <span>${Math.round(ethToUsd * art.price)}</span>
-                  </h2>
-                </div>
-                <div className="line"></div>
-                <button onClick={() => navigate(`/art/${art._id}`)}>
-                  VIEW
-                </button>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
       <Featured />
       <SeriesFeatured />
-      <Spotlight />
       <Footer />
     </div>
   );

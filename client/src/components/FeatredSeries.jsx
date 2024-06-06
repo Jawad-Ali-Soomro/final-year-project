@@ -4,6 +4,7 @@ import axios from "axios";
 import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
 import { MdStackedBarChart } from "react-icons/md";
+import { ColorRing, LineWave } from "react-loader-spinner";
 
 const SeriesFeatured = () => {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ const SeriesFeatured = () => {
   return (
     <div className="featured flex col">
       <h1>Series <button>See All</button></h1>
-      <div className="featured-card flex">
+      {
+        main_data == undefined ? <ColorRing width={200} height={200} colors={["black"]} /> : <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col" key={card_item._id}>
@@ -57,6 +59,7 @@ const SeriesFeatured = () => {
           );
         })}
       </div>
+      }
     </div>
   );
 };
