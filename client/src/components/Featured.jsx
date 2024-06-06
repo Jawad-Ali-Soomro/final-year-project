@@ -5,12 +5,12 @@ import { baseArtUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
 import { BiUserPlus } from "react-icons/bi";
 import { ColorRing, LineWave } from "react-loader-spinner";
+import Syncer from "./Syncer";
 
 const Featured = () => {
   const navigate = useNavigate();
   const [show_menu, set_menu] = useState(false);
   const [main_data, set_data] = useState();
-
   const fetch_data = async () => {
     try {
       const response = await axios.get(`${baseArtUrl}/get/featured/images`);
@@ -38,12 +38,12 @@ const Featured = () => {
     <div className="featured flex col">
       <h1>Featured Art <button>see all</button></h1>
       {
-        main_data == undefined ? <ColorRing colors={["black"]} width={200} height={200} color="black" /> : <div className="featured-card flex">
+        main_data == undefined ? <Syncer /> : <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col" key={card_item._id}>
               <div className="img-sect flex">
-                <img src={card_item?.image} alt="" onClick={() => navigate(`/art/${card_item?._id}`)} />
+                <img src={card_item?.image} alt="" onClick={() => navigate(`/art/${card_item?._id}`) + window.location.reload()} />
               </div>
               <h2
                 style={{
@@ -62,7 +62,7 @@ const Featured = () => {
                 </h2>
               </div>
                 <div className="line"></div>
-              <div className="profile flex">
+              <div className="profile flex" onClick={() => navigate(`/user/${card_item?.owner?._id}`)}>
                 <div className="left flex">
                   <img src={card_item?.owner?.avatar} alt="" />
                   <div className="info flex col">

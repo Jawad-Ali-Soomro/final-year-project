@@ -5,6 +5,7 @@ import { baseArtUrl, baseSeriesUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
 import { MdStackedBarChart } from "react-icons/md";
 import { ColorRing, LineWave } from "react-loader-spinner";
+import Syncer from "./Syncer";
 
 const SeriesFeatured = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const SeriesFeatured = () => {
     <div className="featured flex col">
       <h1>Series <button>See All</button></h1>
       {
-        main_data == undefined ? <ColorRing width={200} height={200} colors={["black"]} /> : <div className="featured-card flex">
+        main_data == undefined ? <Syncer /> : <div className="featured-card flex">
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col" key={card_item._id}>
@@ -47,7 +48,7 @@ const SeriesFeatured = () => {
                 </p>
               </div>
                 <div className="line"></div>
-              <div className="profile flex">
+              <div className="profile flex" onClick={() => navigate(`/user/${card_item?.owner?._id}`) + window.location.reload()}>
                 <div className="left flex">
                   <img src={card_item?.owner?.avatar} alt="" />
                   <div className="info flex col">

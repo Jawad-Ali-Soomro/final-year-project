@@ -8,7 +8,14 @@ import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
-import { Circles, CirclesWithBar, ColorRing, LineWave , MutatingDots  } from "react-loader-spinner";
+import {
+  Circles,
+  CirclesWithBar,
+  ColorRing,
+  LineWave,
+  MutatingDots,
+} from "react-loader-spinner";
+import Syncer from "../components/Syncer.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -56,8 +63,10 @@ const Home = () => {
       <Header />
       <Banner />
       <div className="trending flex">
-        {
-          main_data == undefined ? <ColorRing colors={["black"]} width={400} height={400} color="black" /> : main_data?.map((art) => (
+        {main_data == undefined ? (
+          <Syncer />
+        ) : (
+          main_data?.map((art) => (
             <div className="card flex" key={art._id}>
               <div className="right-content flex">
                 <img src={art.image} alt="" />
@@ -73,17 +82,21 @@ const Home = () => {
                     ))}
                   </div>
                   <div className="profile-series flex">
-                    <div className="profile inherit flex">
+                    <div
+                      style={{ cursor: "pointer" }}
+                      className="profile inherit flex"
+                      onClick={() => navigate(`/user/${art?.owner?._id}`) + window.location.reload()}
+                    >
                       <img src={art.owner.avatar} alt="" />
                       <div className="info flex col">
                         <p>ARTIST</p>
                         <h2>{art.owner.username}</h2>
                       </div>
                     </div>
-                    {art.series?.splice(0,1)?.map((series, index) => (
+                    {art.series?.splice(0, 1)?.map((series, index) => (
                       <div className="series inherit flex" key={index}>
                         <div className="img-sect flex">
-                        <img src={series.image} alt="" />
+                          <img src={series.image} alt="" />
                         </div>
                         <div className="info flex col">
                           <p>SERIES</p>
@@ -107,7 +120,7 @@ const Home = () => {
               </div>
             </div>
           ))
-        }
+        )}
       </div>
       <Featured />
       <SeriesFeatured />

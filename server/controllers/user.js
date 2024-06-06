@@ -96,7 +96,7 @@ exports.follow_unfollow_user = catch_async_err(async (req, res) => {
 
 exports.get_user_by_id = catch_async_err(async (req, res) => {
   const { id } = req.params;
-  const found_user = await User.findById(id).populate("art").populate("series");
+  const found_user = await User.findById(id).populate("art").populate("series").populate("followers").populate("following")
   return res.json({
     data: found_user,
   });
