@@ -52,51 +52,74 @@
       }
     }
   }
-  .featured-card {
-    flex-wrap: wrap;
-    gap: 10px !important;
-    padding-bottom: 100px;
-    .card-item {
-      padding: 10px !important;
-      gap: 20px !important;
-      margin-top: 50px !important;
+}
+.featured-card {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px !important;
+  padding-bottom: 100px;
+  justify-content: space-between;
+  .card-item {
+    padding: 10px !important;
+    gap: 20px !important;
+    margin-top: 50px !important;
+    overflow: hidden;
+    padding-bottom: 30px !important;
+    align-items: start;
+    border: 1px solid transparent;
+    .main-img {
+      width: 320px;
+      height: 320px;
       overflow: hidden;
-      padding-bottom: 30px !important;
-      .main-img {
-        width: 320px;
-        height: 320px;
-        overflow: hidden;
-        img{
-            width: 100%;
-            height: 100%;
-            transition: .3s;
-        }
-      }
-      .profile {
-        width:300px;
-        justify-content: space-between;
-      }
-      .line{
-        width: 300px;
-      }
-      .price {
-        p{
-            color: rgba($color: #000000, $alpha: 0.7);
-        }
-        h2 {
-          line-height: 25px;
-          font-weight: 600;
-          color: rgba($color: #000000, $alpha: 0.8);
-          font-size: .9rem;
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
       }
     }
-    .card-item:hover{
-        .main-img {
-            img{
-                scale: 1.1;
-            }
-        }
+    .profile {
+      width: 300px;
+      justify-content: space-between;
+      margin-left: 10px;
+      cursor: pointer;
+      img{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      h2{
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+    .line {
+      width: 300px;
+      height: 1px;
+      background: #111;
+      margin-left: 10px;
+    }
+    .price {
+      align-items: start;
+      margin-left: 10px;
+      p {
+        font-size: .6rem;
+        color: rgba($color: #000000, $alpha: 0.7);
+      }
+      h2 {
+        line-height: 25px;
+        font-weight: 600;
+        color: rgba($color: #000000, $alpha: 0.8);
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .card-item:hover {
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    .main-img {
+      img {
+        scale: 1.1;
+      }
     }
   }
 }

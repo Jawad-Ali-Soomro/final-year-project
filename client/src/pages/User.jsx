@@ -3,10 +3,11 @@ import Header from "../components/Header";
 import Syncer from "../components/Syncer";
 import axios from "axios";
 import "../styles/User.scss";
-import { baseUserUrl } from "../constant";
-import { Link, useParams } from "react-router-dom";
+import Footer from '../components/Footer'
+import '../styles/Explore.scss'
+import { baseUserUrl, ethToUsd } from "../constant";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
-  BiDiamond,
   BiLogoFacebook,
   BiLogoInstagram,
   BiLogoTwitter,
@@ -23,7 +24,7 @@ const User = () => {
   useEffect(() => {
     fetch_data();
   });
-  console.log(main_data);
+  const navigate = useNavigate()
   return (
     <div>
       <Header />
@@ -116,6 +117,58 @@ const User = () => {
           )}
         </div>
       </div>
+      <div className="bottom flex col">
+        <h1>Art by {main_data?.username}</h1>
+      <div className="featured-card flex">
+        {main_data == undefined ? (
+          <Syncer />
+        ) : (
+          main_data?.art?.map((card_item) => {
+            return (
+              <div
+                className="card-item flex col"
+                style={{ paddingBottom: "20px" }}
+                key={card_item._id}
+              >
+                <div
+                  className="main-img"
+                  onClick={() => navigate(`/art/${card_item._id}`)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img src={card_item?.image} alt="" className="main-img" />
+                </div>
+                <h2
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 400,
+                    paddingLeft: "10px",
+                  }}
+                >
+                  {card_item?.title}
+                </h2>
+                <div className="price flex col">
+                  <p>PRICE</p>
+                  <h2>
+                    {card_item?.price} ≈{" "}
+                    <span>${Math.round(ethToUsd * card_item?.price)}</span>
+                  </h2>
+                </div>
+                <div className="line"></div>
+                <div className="profile flex">
+                  <div className="left flex" onClick={() => navigate(`/user/${main_data?._id}`) + window.location.reload()}>
+                    <img src={main_data?.avatar} alt="" />
+                    <div className="info flex col">
+                      <h2 style={{marginLeft:'10px'}}>{main_data?.username}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+      </div>
+      <Footer />
     </div>
   );
 };
