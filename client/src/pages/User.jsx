@@ -118,7 +118,6 @@ const User = () => {
         </div>
       </div>
       <div className="bottom flex col">
-        <h1>Art by {main_data?.username}</h1>
       <div className="featured-card flex">
         {main_data == undefined ? (
           <Syncer />
