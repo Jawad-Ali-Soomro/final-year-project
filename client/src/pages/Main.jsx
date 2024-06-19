@@ -23,7 +23,7 @@ const Main = () => {
     await axios
       .get(`${baseUserUrl}/get/${main_data?.owner?._id}`)
       .then((res) => {
-        set_more(res.data.data.art.splice(0, 4));
+        set_more(res.data.data.art.splice(0, 3));
       });
   };
   useEffect(() => {
@@ -50,7 +50,13 @@ const Main = () => {
                 })}
               </div>
               <div className="owner-series flex">
-                <div className="content flex" onClick={() => navigate(`/user/${main_data?.owner?._id}`) + window.location.reload()}>
+                <div
+                  className="content flex"
+                  onClick={() =>
+                    navigate(`/user/${main_data?.owner?._id}`) +
+                    window.location.reload()
+                  }
+                >
                   <img src={main_data?.owner?.avatar} alt="" />
                   <div className="info flex col">
                     <p>ARTIST</p>
@@ -97,7 +103,7 @@ const Main = () => {
           <h1>Description</h1>
           <div className="desc flex col">
             {show_desc == false ? (
-              <p>{main_data?.description.substring(0, 120)}...</p>
+              <p>{main_data?.description.substring(0, 130)}...</p>
             ) : (
               <p>{main_data?.description}</p>
             )}
