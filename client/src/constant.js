@@ -1,3 +1,4 @@
+import toast, { Toaster } from 'react-hot-toast'
 import Web3 from 'web3'
 const baseUserUrl = 'http://localhost:8080/api/v1/user'
 const baseArtUrl = 'http://localhost:8080/api/v1/art'
@@ -11,13 +12,14 @@ const connectMetamask = async () => {
         console.log('Connected to Metamask!');
         const web3 = new Web3(window.ethereum);
         const accounts = await web3.eth.getAccounts();
-        console.log('User account:', accounts[0]);
-        window.localStorage.setItem("token" , accounts)
+        console.log(web3.eth.Contract);
+        window.localStorage.setItem("token" , accounts[0])
+        window.location.reload()
       } catch (error) {
-        console.error('Error connecting to Metamask:', error);
+        toast.error('Error connecting to Metamask:', error);
       }
     } else {
-      console.error('Metamask not detected');
+      toast.error('Please Install Metamask Extension');
     }
   };
 
