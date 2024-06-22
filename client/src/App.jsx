@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader.jsx";
 import User from "./pages/User.jsx";
+import MainSeries from "./pages/mainSeries.jsx";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/explore" element={<Explore />}></Route>
           <Route path="/user/:id" element={<User />}></Route>
           <Route path="/explore/series" element={<Series />}></Route>
+          <Route path="/series/:id"  element={<MainSeries />}></Route>
         </Routes>
       </BrowserRouter>
     </>

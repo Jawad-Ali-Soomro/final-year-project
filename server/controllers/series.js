@@ -48,7 +48,7 @@ exports.get_all_series = catch_async_err(async (req,res) => {
 
 exports.get_series_by_id = catch_async_err(async (req,res) => {
     const {id} = req.params
-    const found_series = await Series.findById(id).populate("art")
+    const found_series = await Series.findById(id).populate("art").populate("owner")
     return res.json({
         data : found_series
     })

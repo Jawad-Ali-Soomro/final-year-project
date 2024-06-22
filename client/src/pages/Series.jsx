@@ -21,7 +21,6 @@ const Series = () => {
   useEffect(() => {
     fetch_data();
   });
-  console.log(main_data);
   return (
     <div className="explore-main featured flex col">
       <Header />
@@ -46,7 +45,7 @@ const Series = () => {
               <div className="card-item flex col" key={card_item._id}>
                 <div
                   className="main-img"
-                  onClick={() => navigate(`/art/${card_item._id}`)}
+                  onClick={() => navigate(`/series/${card_item._id}`)}
                   style={{ cursor: "pointer" }}
                 >
                   <img src={card_item?.image} alt="" className="main-img" />
