@@ -10,6 +10,8 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader.jsx";
 import User from "./pages/User.jsx";
 import MainSeries from "./pages/mainSeries.jsx";
+import Trending from "./pages/Trending.jsx";
+import Featured from "./pages/Featured.jsx";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +35,8 @@ function App() {
           <Route path="/user/:id" element={<User />}></Route>
           <Route path="/explore/series" element={<Series />}></Route>
           <Route path="/series/:id"  element={<MainSeries />}></Route>
+          <Route path="/trending" element={<Trending />}></Route>
+          <Route path="/featured" element={<Featured />}></Route>
         </Routes>
       </BrowserRouter>
     </>

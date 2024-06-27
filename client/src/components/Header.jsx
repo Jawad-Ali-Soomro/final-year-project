@@ -11,7 +11,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { connectMetamask } from "../constant";
 import Login from "./Login";
-import { useSelector } from "react-redux";
 
 const Header = () => {
   const metaMaskId = window.localStorage.getItem("token");
@@ -78,11 +77,20 @@ const Header = () => {
       </div>
       <div className="right-content flex">
         <ul className="flex">
+        <li
+            style={{
+              borderBottom: `${active_link == "/" ? "2px solid" : "none"
+                }`,
+              paddingBottom: `${active_link == "/" ? "5px" : "none"}`,
+            }}
+            onClick={() => navigate("/")}
+          >
+            Home
+          </li>
           <li
             style={{
-              borderBottom: `${
-                active_link == "/explore" ? "2px solid" : "none"
-              }`,
+              borderBottom: `${active_link == "/explore" ? "2px solid" : "none"
+                }`,
               paddingBottom: `${active_link == "/explore" ? "5px" : "none"}`,
             }}
             onClick={() => navigate("/explore")}
@@ -91,19 +99,22 @@ const Header = () => {
           </li>
           <li
             style={{
-              borderBottom: `${
-                active_link == "/explore/series" ? "2px solid" : "none"
-              }`,
-              paddingBottom: `${
-                active_link == "/explore/series" ? "5px" : "none"
-              }`,
+              borderBottom: `${active_link == "/explore/series" ? "2px solid" : "none"
+                }`,
+              paddingBottom: `${active_link == "/explore/series" ? "5px" : "none"
+                }`,
             }}
             onClick={() => navigate("/explore/series")}
           >
             Series
           </li>
-          <li>Trending</li>
-          <li>Featured</li>
+          <li style={{
+            borderBottom: `${active_link == "/featured" ? "2px solid" : "none"
+              }`,
+            paddingBottom: `${active_link == "/featured" ? "5px" : "none"
+              }`,
+          }}
+            onClick={() => navigate("/featured")}>Featured</li>
           <div className="menu flex col" onClick={() => set_menu(!show_menu)}>
             <div></div>
             <div></div>
