@@ -48,7 +48,7 @@ const SeriesFeatured = () => {
                   className="price flex"
                   style={{ alignItems: "center", gap: "0px" }}
                 >
-                  <p style={{ fontSize: ".9rem", color: "rgba(0,0,0,.5)" }}>
+                  <p style={{ fontSize: ".9rem", color: "rgba(255,255,255,.5)" }}>
                     {card_item?.art?.length} Artworks
                   </p>
                 </div>

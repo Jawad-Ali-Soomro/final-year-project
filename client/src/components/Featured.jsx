@@ -3,8 +3,6 @@ import "../styles/Featured.scss";
 import axios from "axios";
 import { baseArtUrl, ethToUsd } from "../constant";
 import { useNavigate } from "react-router-dom";
-import { BiUserPlus } from "react-icons/bi";
-import { ColorRing, LineWave } from "react-loader-spinner";
 import Syncer from "./Syncer";
 
 const Featured = () => {

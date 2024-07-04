@@ -72,7 +72,7 @@ const Header = () => {
           <button className="flex">
             <BiSearch />
           </button>
-          <input type="text" placeholder="Search Arthub" />
+          <input type="text" placeholder="SEARCH ARTHUB" />
         </div>
       </div>
       <div className="right-content flex">

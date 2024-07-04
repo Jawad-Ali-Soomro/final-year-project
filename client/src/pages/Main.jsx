@@ -7,6 +7,8 @@ import { baseArtUrl, baseUserUrl, ethToUsd } from "../constant";
 import Footer from "../components/Footer";
 import { ColorRing } from "react-loader-spinner";
 import Syncer from "../components/Syncer";
+import { BiArrowToBottom } from "react-icons/bi";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 const Main = () => {
   const [main_data, set_data] = useState();
@@ -108,7 +110,7 @@ const Main = () => {
               <p>{main_data?.description}</p>
             )}
             <button onClick={() => set_desc(!show_desc)}>
-              {show_desc == true ? "Show Less" : "Show More"}
+              {show_desc == true ? <FaArrowUp /> : <FaArrowDown />}
             </button>
           </div>
         </div>
