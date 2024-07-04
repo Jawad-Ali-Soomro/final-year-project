@@ -8,13 +8,6 @@ import Featured from "../components/Featured.jsx";
 import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
-import {
-  Circles,
-  CirclesWithBar,
-  ColorRing,
-  LineWave,
-  MutatingDots,
-} from "react-loader-spinner";
 import Syncer from "../components/Syncer.jsx";
 
 const Home = () => {
@@ -124,6 +117,9 @@ const Home = () => {
       </div>
       <Featured />
       <SeriesFeatured />
+      <div className="art-market flex">
+        <h1>Digital Art Market On Chain</h1>
+      </div>
       <Footer />
     </div>
   );

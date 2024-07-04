@@ -27,8 +27,8 @@ const Login = ({ onClose }) => {
         <div className="toggler flex" onClick={(e) => e.stopPropagation()}>
           <button
             style={{
-              background: `${step == 1 ? "#111" : "#eee"}`,
-              color: `${step == 1 ? "white" : "black"}`,
+              background: `${step == 1 ? "white" : "#111"}`,
+              color: `${step == 1 ? "black" : "white"}`,
             }}
             onClick={() => set_step(1)}
           >
@@ -36,8 +36,8 @@ const Login = ({ onClose }) => {
           </button>
           <button
             style={{
-              background: `${step == 0 ? "#111" : "#eee"}`,
-              color: `${step == 0 ? "white" : "black"}`,
+              background: `${step == 0 ? "white" : "#111"}`,
+              color: `${step == 0 ? "black" : "white"}`,
             }}
             onClick={() => set_step(0)}
           >
@@ -64,13 +64,15 @@ const Login = ({ onClose }) => {
         ) : (
           <div data-content="signup" className="right  flex col">
             <h1>Let's Start!</h1>
-            <p style={{textTransform:'capitalize'}}>Follow All Steps to create your account!</p>
+            <p style={{ textTransform: "capitalize" }}>
+              Follow All Steps to create your account!
+            </p>
             <div className="step-sect flex">
               <div
                 className="step flex"
                 onClick={() => set_sigunp_step(1)}
                 style={{
-                  background: `${sigunp_step >= 1 ? "#111" : ""}`,
+                  background: `${sigunp_step >= 1 ? "#fff" : ""}`,
                   color: `${sigunp_step >= 1 ? "white" : "black"}`,
                 }}
               ></div>
@@ -78,7 +80,7 @@ const Login = ({ onClose }) => {
                 className="step flex"
                 onClick={() => set_sigunp_step(2)}
                 style={{
-                  background: `${sigunp_step >= 2 ? "#111" : ""}`,
+                  background: `${sigunp_step >= 2 ? "#fff" : ""}`,
                   color: `${sigunp_step >= 2 ? "white" : "black"}`,
                 }}
               ></div>
@@ -86,7 +88,7 @@ const Login = ({ onClose }) => {
                 className="step flex"
                 onClick={() => set_sigunp_step(3)}
                 style={{
-                  background: `${sigunp_step >= 3 ? "#111" : ""}`,
+                  background: `${sigunp_step >= 3 ? "#fff" : ""}`,
                   color: `${sigunp_step >= 3 ? "white" : "black"}`,
                 }}
               ></div>
@@ -94,7 +96,7 @@ const Login = ({ onClose }) => {
                 className="step flex"
                 onClick={() => set_sigunp_step(4)}
                 style={{
-                  background: `${sigunp_step >= 4 ? "#111" : ""}`,
+                  background: `${sigunp_step >= 4 ? "#fff" : "#111"}`,
                   color: `${sigunp_step >= 4 ? "white" : "black"}`,
                 }}
               ></div>
@@ -118,21 +120,23 @@ const Login = ({ onClose }) => {
                 </div>
                 <div className="input-wrap flex">
                   <BiLogoFacebook />
-                  <input type="text" placeholder="Enter acebook Link" />
+                  <input type="text" placeholder="Enter Facebook Link" />
                 </div>
               </div>
-            ) : sigunp_step == 3 ? <div className="main-input flex col">
-            <div className="input-wrap flex">
-              <BiLogoTwitter />
-              <input type="text" placeholder="Enter Twitter  Link" />
-            </div>
-            <div className="input-wrap flex">
-              <BiLogoInstagram />
-              <input type="text" placeholder="Enter Instagram Link" />
-            </div>
-          </div> : sigunp_step == 4 ? (
+            ) : sigunp_step == 3 ? (
               <div className="main-input flex col">
-                <div className="input-wrap" style={{border:'none'}}>
+                <div className="input-wrap flex">
+                  <BiLogoTwitter />
+                  <input type="text" placeholder="Enter Twitter  Link" />
+                </div>
+                <div className="input-wrap flex">
+                  <BiLogoInstagram />
+                  <input type="text" placeholder="Enter Instagram Link" />
+                </div>
+              </div>
+            ) : sigunp_step == 4 ? (
+              <div className="main-input flex col">
+                <div className="input-wrap" style={{ border: "none" }}>
                   <div className="avatar flex">
                     <input type="file" name="" id="" />
                   </div>
@@ -146,7 +150,7 @@ const Login = ({ onClose }) => {
                 sigunp_step <= 4 ? set_sigunp_step(sigunp_step + 1) : this
               }
             >
-            {sigunp_step <4 ? "Next" : "signup"}
+              {sigunp_step < 4 ? "Next" : "signup"}
             </button>
           </div>
         )}

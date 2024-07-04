@@ -29,7 +29,7 @@ const Series = () => {
           series <span>Discover Series & Collect Rare Items</span>
         </h1>
         <button className="flex">
-          Filters
+          
           <img src="../public/filter.svg" alt="" />
         </button>
         <div className="length flex">

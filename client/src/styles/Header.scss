@@ -65,7 +65,7 @@
                 .main-menu {
                     width: 140px !important;
                     height: auto;
-                    border: 1px solid rgba($color: #fff, $alpha: 0.1);
+                    border: 1px solid rgba($color: #fff, $alpha: 0.3);
                     background: transparent;
                     position: absolute;
                     align-items: start;
@@ -76,7 +76,6 @@
                     padding: 30px;
                     background: #111;
                     gap: 20px;
-                    border: 1px solid;
                     ul{
                         align-items: start;
                         gap: 10px;

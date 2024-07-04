@@ -46,12 +46,17 @@
       button {
         width: 160px;
         height: 45px;
-        background: #111;
+        background: rgba($color: #fff, $alpha: 0.1);
         color: white;
         border: none;
         text-transform: uppercase;
         font-weight: 400;
         padding-top: 2px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: transparent;
+        border: 1px solid rgba($color: #fff, $alpha: 0.3);
       }
     }
     .bottom {

@@ -7,6 +7,7 @@ import "../styles/Featured.scss";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Syncer from "../components/Syncer";
+import { BiCross } from "react-icons/bi";
 
 const Explore = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Explore = () => {
   useEffect(() => {
     fetch_data();
   });
+  const [show_filters, set_filters] = useState(false);
   return (
     <div className="explore-main featured flex col">
       <Header />
@@ -26,8 +28,7 @@ const Explore = () => {
         <h1 className="flex">
           Explore <span>Discover & Collect Crypto Art.</span>
         </h1>
-        <button className="flex">
-          Filters
+        <button className="flex" onClick={() => set_filters(true)}>
           <img src="../public/filter.svg" alt="" />
         </button>
         <div className="length flex">
@@ -70,7 +71,13 @@ const Explore = () => {
                 </div>
                 <div className="line"></div>
                 <div className="profile flex">
-                  <div className="left flex" onClick={() => navigate(`/user/${card_item?.owner?._id}`) + window.location.reload()}>
+                  <div
+                    className="left flex"
+                    onClick={() =>
+                      navigate(`/user/${card_item?.owner?._id}`) +
+                      window.location.reload()
+                    }
+                  >
                     <img src={card_item?.owner?.avatar} alt="" />
                     <div className="info flex col">
                       <h2>{card_item?.owner?.username}</h2>
@@ -82,6 +89,14 @@ const Explore = () => {
           })
         )}
       </div>
+      {show_filters == true ? <div className="filters-wrap flex">
+        <div className="filter-main flex">
+          <div className="close-menu flex" onClick={() => set_filters(false)}>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div> : this}
       <Footer />
     </div>
   );

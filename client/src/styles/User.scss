@@ -1,118 +1,117 @@
 .main-wrap {
-    height: 90vh;
-    margin-top: 10vh;
-    justify-content: space-between;
-    .right {
-        width: 500px;
-        .img-sect {
-            width: 500px;
-            height: 500px;
-            img{
-                width: 100%;
-                height: 100%;
-            }
-        }
-
+  height: 90vh;
+  margin-top: 10vh;
+  justify-content: space-between;
+  .right {
+    width: 500px;
+    .img-sect {
+      width: 500px;
+      height: 500px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
-    .left {
+  }
+  .left {
+    width: 500px;
+    .info-left {
+      gap: 10px;
+      .profile {
+        gap: 10px;
         width: 500px;
-        .info-left {
+        justify-content: space-between;
+        gap: 10px;
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+        .info {
+          align-items: end;
+          h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+          gap: 15px;
+          .main {
+            gap: 5px;
             gap: 10px;
-            .profile  {
-                gap: 10px;
-                width: 500px;
-                justify-content: space-between;
-                    gap: 10px;
-                    img{
-                        width: 150px;
-                        height: 150px;
-                        border-radius: 50%;
-                    }
-                    .info {
-                        align-items: end;
-                        h3{
-                            font-size: 2rem;
-                            font-weight: 500;
-                            text-transform: capitalize;
-                        }
-                        gap: 15px;
-                        .main {
-                            gap: 5px;
-                            gap: 10px;
-                            p:last-child {
-                                color: rgba($color: #000000, $alpha: 0.5);
-                                font-weight: 600;
-                                font-size: 1.2rem;
-                            }
-                        }
-                    
-                }
-                .btns {
-                    button {
-                        width: 120px;
-                        height: 40px;
-                        background: #111;
-                        border: none;
-                        color: white;
-                        cursor: pointer;
-                        text-transform: uppercase;
-                        font-size: .6rem;
-                        font-weight: 600;
-                    }
-                    gap: 10px;
-                    .more-opt {
-                        width: 39px;
-                        height: 39px;
-                        border: 1px solid rgba($color: #000000, $alpha: 0.5);
-                        gap: 3px;
-                        .dot {
-                            width: 4px;
-                            height: 4px;
-                            border-radius: 2px;
-                            background: black;
-                        }
-                    }
-                }
+            p:last-child {
+              color: rgba($color: #fff, $alpha: 0.5);
+              font-weight: 600;
+              font-size: 1.2rem;
             }
-            .followers {
-                width: 90%;
-                margin-top: 20px;
-                height: 100px;
-                margin-left: 5%;
-                justify-content: space-between;
-                border-radius: 5px;
-                .card {
-                    p {
-                        text-transform: uppercase;
-                        font-size: .8rem;
-                        font-weight: 500;
-                    }
-                    h1 {
-                        font-weight: 600;
-                    }
-                }
-            }
-            .links {
-                width: 90%;
-                height: 100px;
-                margin-left: 5%;
-                justify-content: end;
-                gap: 10px;
-                .link {
-                    border: 1px solid;
-                    color: #111;
-                    font-size: 1.5rem;
-                    width: 50px;
-                    height: 50px;
-                }
-            }
+          }
         }
+        .btns {
+          button {
+            width: 120px;
+            height: 40px;
+            background: rgba($color: #fff, $alpha: 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.6rem;
+            font-weight: 600;
+          }
+          gap: 10px;
+          .more-opt {
+            width: 39px;
+            height: 39px;   
+            border: 1px solid rgba($color: #fff, $alpha: 0.5);
+            gap: 3px;
+            cursor: pointer;
+            .dot {
+              width: 4px;
+              height: 4px;
+              border-radius: 2px;
+              background: white;
+            }
+          }
+        }
+      }
+      .followers {
+        width: 90%;
+        margin-top: 20px;
+        height: 100px;
+        margin-left: 5%;
+        justify-content: space-between;
+        border-radius: 5px;
+        .card {
+          p {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 500;
+          }
+          h1 {
+            font-weight: 600;
+          }
+        }
+      }
+      .links {
+        width: 90%;
+        height: 100px;
+        margin-left: 5%;
+        justify-content: end;
+        gap: 10px;
+        .link {
+          border: 1px solid rgba($color: #fff, $alpha: 0.3);
+          color: white;
+          font-size: 1.5rem;
+          width: 50px;
+          height: 50px;
+        }
+      }
     }
+  }
 }
 
 .bottom {
-    h1{
-        font-weight: 300;
-        text-transform: capitalize;
-    }
+  h1 {
+    font-weight: 300;
+    text-transform: capitalize;
+  }
 }
