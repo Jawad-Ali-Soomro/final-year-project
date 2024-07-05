@@ -9,6 +9,7 @@ import SeriesFeatured from "../components/FeatredSeries.jsx";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Syncer from "../components/Syncer.jsx";
+import Spotlight from '../components/Spotlight.jsx'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -117,6 +118,7 @@ const Home = () => {
       </div>
       <Featured />
       <SeriesFeatured />
+      <Spotlight />
       <div className="art-market flex">
         <h1>Digital Art Market On Chain</h1>
       </div>

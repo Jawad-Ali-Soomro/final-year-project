@@ -40,7 +40,7 @@ const Spotlight = () => {
         {main_data?.map((card_item) => {
           return (
             <div className="card-item flex col" key={card_item._id}>
-              <div className="img-sect flex">
+              <div className="img-sect flex" onClick={() => navigate(`/art/${card_item?._id}`)}>
                 <img src={card_item?.image} alt="" />
               </div>
               <h2
