@@ -11,6 +11,7 @@ import {
   BiLogoFacebook,
   BiLogoInstagram,
   BiLogoTwitter,
+  BiUserPlus,
 } from "react-icons/bi";
 
 const User = () => {
@@ -46,7 +47,6 @@ const User = () => {
                     </p>
                   </div>
                   <div className="btns flex">
-                    <button>Follow</button>
                     <div className="more-opt flex col">
                       <div className="dot"></div>
                       <div className="dot"></div>
@@ -111,7 +111,7 @@ const User = () => {
           {main_data == undefined ? (
             <Syncer />
           ) : (
-            <div className="img-sect">
+            <div className="img-sect" onClick={() => {navigate(`/art/${main_data?.art[0]?._id}`)}}>
               {<img src={main_data?.art[0]?.image} alt="" />}
             </div>
           )}
