@@ -44,6 +44,12 @@ const art_schema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  likedby: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const Art = mongoose.model("Art", art_schema);
