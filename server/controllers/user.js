@@ -38,7 +38,7 @@ exports.login_user = catch_async_err(async (req, res) => {
   const find_user = await User.findOne({ email: req.body.email });
   if (!find_user) {
     return res.json({
-      message: "Account not found!",
+      message: "User Not Found!",
     });
   }
   const check_password = await bcrypt.compare(
@@ -47,13 +47,14 @@ exports.login_user = catch_async_err(async (req, res) => {
   );
   if (!check_password) {
     return res.json({
-      message: "Please Enter Correct Password!",
+      message: "Incorrect Password!",
     });
   }
   const token = await tokenize_data({ data: find_user.toObject() });
   res.cookie("token", token, { httpOnly: true }).json({
     message: "Logged In!",
     data: find_user,
+    token,
   });
 });
 
@@ -71,32 +72,37 @@ exports.get_profile = catch_async_err(async (req, res) => {
 });
 
 exports.follow_unfollow_user = catch_async_err(async (req, res) => {
-  const user_id = req.body.user_id;
-  const { token } = req.cookies;
+  const user_id = req.body.userId;
+  const token = req.body.loggedInId;
   const logged_in_id = await de_tokenize_data({ token: token });
   const logged_in_user = await User.findById(logged_in_id._id);
   const user_to_follow = await User.findById(user_id);
   if (user_to_follow.followers.includes(logged_in_user._id)) {
-    user_to_follow.followers.pop(logged_in_id._id);
-    logged_in_user.following.pop(user_to_follow._id);
+    await user_to_follow.followers.pop(logged_in_id._id);
+    await logged_in_user.following.pop(user_to_follow._id);
     await user_to_follow.save();
     await logged_in_user.save();
     return res.json({
       message: "User unfollowed!",
     });
+  } else {
+    user_to_follow.followers.push(logged_in_id._id);
+    logged_in_user.following.push(user_to_follow._id);
+    await user_to_follow.save();
+    await logged_in_user.save();
+    return res.json({
+      message: "User followed!",
+    });
   }
-  user_to_follow.followers.push(logged_in_id._id);
-  logged_in_user.following.push(user_to_follow._id);
-  await user_to_follow.save();
-  await logged_in_user.save();
-  res.json({
-    message: "User followed!",
-  });
 });
 
 exports.get_user_by_id = catch_async_err(async (req, res) => {
   const { id } = req.params;
-  const found_user = await User.findById(id).populate("art").populate("series").populate("followers").populate("following")
+  const found_user = await User.findById(id)
+    .populate("art")
+    .populate("series")
+    .populate("followers")
+    .populate("following");
   return res.json({
     data: found_user,
   });
